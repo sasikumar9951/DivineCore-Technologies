@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-primary: #D4AF37;
+  --color-gold-secondary: #FFD700;
+  --color-gold-muted: #B8860B;
+  --color-deep-black: #0a0a0a;
+  --color-dark-gray: #1a1a1a;
+  --color-light-gray: #f8f9fa;
+  
+  --font-sans: "Inter", sans-serif;
+  
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-ping-slow: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px rgba(212, 175,55, 0.2); }
+  to { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* Custom Utilities */
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.glass-card {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light-card {
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.light-card:hover {
+  transform: translateY(-5px);
+  border-color: #D4AF37;
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+}
+
+.section-tag {
+  color: #D4AF37;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 1rem;
+}
