@@ -8,9 +8,18 @@ import Link from "next/link";
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("All Projects");
 
-  const tabs = ["All Projects", "Web Development", "Mobile Apps", "SaaS / Admin", "WordPress"];
+  const tabs = ["All Projects", "Web Development", "Mobile Apps", "SaaS / Admin", "WordPress", "BPO Services"];
 
   const projects = [
+    {
+      title: "PDF to Word Conversion",
+      category: "BPO & Data Services",
+      tab: "BPO Services",
+      description: "A high-volume document processing service delivering accurate manual and automated PDF to Word conversions. Secured as a long-term enterprise partnership with a 1.5-year service agreement.",
+      tech: ["Quality Assurance", "Data Security", "High Accuracy"],
+      status: "Ongoing",
+      imageUrl: "/images/solutions_hero.png"
+    },
     {
       title: "Aero Airworthiness",
       category: "Aviation & Certification",
