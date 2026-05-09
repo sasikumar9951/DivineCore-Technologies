@@ -1,8 +1,37 @@
+"use client";
+
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import Link from "next/link";
+import { useState } from "react";
+import { sendEmail } from "./actions";
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const result = await sendEmail(formData);
+
+      if (result.success) {
+        setIsSuccess(true);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        alert(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Error sending message. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <div className="bg-white">
       <Hero
@@ -25,31 +54,57 @@ export default function Contact() {
           <div className="space-y-8">
             <h3 className="text-2xl font-black text-deep-black">Let's Connect</h3>
             <p className="text-black/40 -mt-4">We'd love to hear from you. Reach out to us for any inquiries or partnership.</p>
-            <form className="space-y-6">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors"
-              />
-              <input
-                type="text"
-                placeholder="Subject"
-                className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors"
-              />
-              <textarea
-                rows={4}
-                placeholder="Your Message"
-                className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors resize-none"
-              ></textarea>
-              <button className="w-full md:w-auto px-12 py-4 rounded-xl gold-gradient text-deep-black font-black hover:shadow-xl transition-all flex items-center justify-center gap-2">
-                Send Message <span>→</span>
-              </button>
-            </form>
+            
+            {isSuccess ? (
+              <div className="bg-gold-primary/10 border border-gold-primary/20 p-8 rounded-3xl animate-fade-in text-center space-y-4">
+                <div className="text-4xl">✅</div>
+                <h4 className="text-xl font-black text-deep-black">Message Sent Successfully!</h4>
+                <p className="text-black/60">Thank you for reaching out. We will get back to you at info@divinecoretech.in shortly.</p>
+                <button 
+                  onClick={() => setIsSuccess(false)}
+                  className="text-gold-muted font-bold text-sm uppercase tracking-widest hover:text-gold-primary transition-colors"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Your Email"
+                  className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors"
+                />
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  placeholder="Subject"
+                  className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors"
+                />
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  placeholder="Your Message"
+                  className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors resize-none"
+                ></textarea>
+                <button 
+                  disabled={isSubmitting}
+                  className={`w-full md:w-auto px-12 py-4 rounded-xl gold-gradient text-deep-black font-black hover:shadow-xl transition-all flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'} <span>→</span>
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Contact Info */}
