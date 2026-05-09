@@ -46,10 +46,10 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-white/40">
               {[
                 "Software Development",
+                "BPO & Data Entry",
                 "Cloud Solutions",
                 "Mobile App Development",
                 "Cybersecurity",
-                "IT Consulting",
               ].map((item) => (
                 <li key={item}>
                   <Link href="/services" className="hover:text-gold-primary transition-colors">
