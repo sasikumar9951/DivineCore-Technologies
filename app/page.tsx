@@ -9,6 +9,8 @@ import Testimonials from "@/components/Testimonials";
 import Preloader from "@/components/Preloader";
 import { useState, useEffect } from "react";
 
+// Final production deployment with SMTP fixes
+
 export default function Home() {
   const services = [
     {

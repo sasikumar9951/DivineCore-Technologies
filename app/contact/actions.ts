@@ -10,8 +10,8 @@ export async function sendEmail(formData: FormData) {
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.hostinger.com",
-    port: parseInt(process.env.SMTP_PORT || "465"),
-    secure: true, // true for 465, false for other ports
+    port: parseInt(process.env.SMTP_PORT || "587"),
+    secure: process.env.SMTP_PORT === "465", // true for 465, false for 587
     auth: {
       user: process.env.SMTP_USER || "info@divinecoretech.in",
       pass: process.env.SMTP_PASS, // This MUST be in your .env.local
