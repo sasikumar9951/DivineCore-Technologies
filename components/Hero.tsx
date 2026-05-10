@@ -24,7 +24,7 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
           <div className="lg:w-1/2 space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-[0.3em] text-gold-primary mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-primary animate-pulse" />
-              Next-Gen Solutions
+              DivineCore Technologies
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white">
