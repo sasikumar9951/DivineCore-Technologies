@@ -90,17 +90,18 @@ export default function Home() {
           subtitle="DivineCore Technologies delivers high-performance, enterprise-grade software solutions that transform complex business challenges into seamless digital experiences."
           isHome
         >
-          <div className="flex flex-col sm:flex-row gap-4 mt-12">
-            <Link href="/services" className="gold-gradient text-deep-black px-10 py-4 rounded-full font-black text-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all text-center">
+          <div className="flex flex-col sm:flex-row gap-6 mt-12 w-full sm:w-auto">
+            <Link href="/services" className="gold-gradient text-deep-black px-12 py-5 rounded-2xl font-black text-lg hover:shadow-[0_20px_40px_rgba(212,175,55,0.3)] transition-all active:scale-95 text-center flex items-center justify-center gap-3">
               Explore Services
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </Link>
-            <Link href="/projects" className="border border-white/20 text-white px-10 py-4 rounded-full font-black text-lg hover:bg-white hover:text-deep-black transition-all text-center">
+            <Link href="/projects" className="bg-white/5 border border-white/10 text-white px-12 py-5 rounded-2xl font-black text-lg hover:bg-white hover:text-deep-black transition-all active:scale-95 text-center flex items-center justify-center">
               View Projects
             </Link>
           </div>
         </Hero>
 
-        <Section className="bg-white">
+        <Section className="bg-white pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="section-tag">WHO WE ARE</span>
@@ -132,19 +133,93 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section className="bg-black text-white">
-          <div className="text-center mb-16">
-            <span className="section-tag">OUR EXPERTISE</span>
-            <h2 className="text-4xl md:text-5xl font-black">Solutions That Drive Real Impact</h2>
+        {/* Featured Projects Section - Re-Applied Premium Dark */}
+        <Section className="bg-[#050505] text-white">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
+            <div className="max-w-2xl text-left">
+              <span className="section-tag border-gold-primary/30 text-gold-primary">PORTFOLIO SHOWCASE</span>
+              <h2 className="text-4xl md:text-6xl font-black text-white mt-4">Engineering <span className="gold-text-gradient">Impact</span></h2>
+              <p className="text-white/40 mt-6 leading-relaxed text-lg">A glimpse into the high-performance digital products we've engineered for our global partners.</p>
+            </div>
+            <Link href="/projects" className="group flex items-center gap-3 text-gold-primary font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-all duration-300">
+              Explore All Projects
+              <span className="w-8 h-px bg-gold-primary/40 group-hover:w-12 group-hover:bg-white transition-all" />
+            </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Aero Airworthiness",
+                category: "Aviation Certification",
+                image: "/images/aero.png",
+                desc: "Premium aviation certification platform providing full-spectrum FAA support and regulatory expertise."
+              },
+              {
+                title: "Swan Match",
+                category: "Mobile Application",
+                image: "/images/swan.png",
+                desc: "International marriage matchmaking app with real-time chat and advanced profile matching algorithms."
+              },
+              {
+                title: "Revz Clothings",
+                category: "E-Commerce",
+                image: "/images/revz.png",
+                desc: "Fully functional e-commerce platform with seamless payment integration and order management."
+              }
+            ].map((project, i) => (
+              <Link key={i} href="/projects" className="group">
+                <div className="flex flex-col h-full bg-white/5 rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-gold-primary/30 transition-all duration-500 shadow-2xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.1)] hover:-translate-y-3 relative">
+                  <div className="aspect-[16/11] overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gold-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 blur-2xl" />
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                    />
+                    <div className="absolute top-8 left-8 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-[0.2em] text-gold-primary z-20">
+                      {project.category}
+                    </div>
+                  </div>
+                  
+                  <div className="p-10 flex flex-col flex-grow relative text-left">
+                    <h3 className="text-2xl font-black text-white mb-4 group-hover:text-gold-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/40 text-sm leading-relaxed mb-10 flex-grow group-hover:text-white/60 transition-colors">
+                      {project.desc}
+                    </p>
+                    
+                    <div className="flex items-center justify-between mt-auto">
+                      <div className="text-[10px] font-black text-gold-primary uppercase tracking-[0.2em] flex items-center gap-3">
+                        View Case Study
+                        <div className="w-6 h-6 rounded-full border border-gold-primary/30 flex items-center justify-center group-hover:bg-gold-primary group-hover:text-deep-black transition-all">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Section>
+
+        {/* Expertise Section - Transitioned to Clean White */}
+        <Section className="bg-white">
+          <div className="text-center mb-20">
+            <span className="section-tag text-center">OUR EXPERTISE</span>
+            <h2 className="text-4xl md:text-5xl font-black text-deep-black">Solutions That Drive Real Impact</h2>
+            <p className="text-black/40 mt-4 max-w-2xl mx-auto">Scalable, secure, and high-performance digital products engineered for excellence.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {services.map((service, index) => (
-              <div key={index} className="p-8 rounded-3xl bg-dark-gray border border-white/5 hover:border-gold-primary/30 transition-all group">
+              <div key={index} className="p-8 rounded-3xl bg-light-gray/20 border border-black/5 hover:border-gold-primary/30 transition-all group text-left">
                 <div className="w-12 h-12 rounded-xl bg-gold-primary/10 flex items-center justify-center text-gold-primary mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="text-lg font-black mb-3">{service.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{service.description}</p>
+                <h3 className="text-lg font-black text-deep-black mb-3">{service.title}</h3>
+                <p className="text-black/40 text-sm leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>

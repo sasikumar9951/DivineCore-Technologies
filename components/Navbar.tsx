@@ -48,29 +48,29 @@ const Navbar = () => {
               <TransparentImage 
                 src="/images/logo.png" 
                 alt="DivineCore Logo" 
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" 
               />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-lg md:text-xl font-black tracking-tight text-white">DivineCore</span>
-              <span className="text-[8px] md:text-[10px] font-bold text-gold-primary tracking-[0.2em] uppercase">Technologies</span>
+              <span className="text-xl md:text-2xl font-black tracking-[-0.02em] text-white">DivineCore</span>
+              <span className="text-[8px] md:text-[9px] font-black text-gold-primary tracking-[0.4em] uppercase opacity-80">Technologies</span>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[13px] font-bold text-white/70 transition-colors hover:text-gold-primary"
+                className="text-[11px] font-extrabold text-white/50 transition-all hover:text-white uppercase tracking-[0.2em]"
               >
                 {link.name}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="rounded-full px-6 py-2.5 text-[13px] font-black gold-gradient text-deep-black hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all active:scale-95 ml-4"
+              className="rounded-xl px-7 py-3 text-[12px] font-black gold-gradient text-deep-black hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] transition-all active:scale-95 ml-4"
             >
               Let's Connect
             </Link>
@@ -106,7 +106,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-2xl font-black text-white tracking-widest hover:text-gold-primary transition-all duration-300 ${
+                className={`text-2xl font-black text-white tracking-[0.3em] uppercase hover:text-gold-primary transition-all duration-300 ${
                   isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
