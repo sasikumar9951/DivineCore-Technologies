@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-deep-black text-white font-sans selection:bg-gold-primary selection:text-deep-black">
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pt-20">{children}</main>
         <Footer />
       </body>
     </html>

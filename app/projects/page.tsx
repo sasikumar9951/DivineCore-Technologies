@@ -101,7 +101,7 @@ export default function Projects() {
     : projects.filter(p => p.tab === activeTab);
 
   return (
-    <div className="bg-white">
+    <div>
       <Hero
         title="Portfolio"
         subtitle="A showcase of our diverse technical expertise and the impactful digital products we've engineered for our clients."

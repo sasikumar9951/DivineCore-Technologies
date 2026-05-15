@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`sticky top-0 w-full border-b border-white/5 transition-all duration-300 ${isOpen ? "z-[10000] bg-[#050505]" : "z-50 bg-deep-black/90 backdrop-blur-md"}`}>
+      <nav className={`fixed top-0 left-0 w-full border-b border-white/5 transition-all duration-300 ${isOpen ? "z-[10000] bg-[#050505]" : "z-[100] bg-deep-black/90 backdrop-blur-md"}`}>
         <div className="container mx-auto flex h-20 items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-12 h-12 md:w-16 md:h-16 relative">
