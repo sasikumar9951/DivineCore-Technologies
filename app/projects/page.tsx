@@ -86,10 +86,10 @@ export default function Projects() {
       imageUrl: "/images/bookkeeping.png"
     },
     {
-      title: "20+ WordPress Projects",
+      title: "Vetri Groups: 20+ WordPress Projects",
       category: "WordPress",
       tab: "WordPress",
-      description: "Successfully delivered over 20 WordPress projects — business websites, blogs, portfolios, landing pages, WooCommerce stores, and custom theme development.",
+      description: "Successfully delivered a massive suite of over 20 professional WordPress websites exclusively for Vetri Groups — including corporate portals, business blogs, landing pages, and custom e-commerce solutions.",
       tech: ["WordPress", "Elementor", "Custom CSS"],
       status: "Completed",
       imageUrl: "/images/wordpress.png"
