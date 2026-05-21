@@ -7,6 +7,7 @@ import Card from "@/components/Card";
 import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
 import Preloader from "@/components/Preloader";
+import Integrations from "@/components/Integrations";
 import { useState, useEffect } from "react";
 
 // Final production deployment with SMTP fixes
@@ -101,6 +102,21 @@ export default function Home() {
           </div>
         </Hero>
 
+        <Section className="bg-white py-16 border-b border-black/5 overflow-hidden">
+          <div className="text-center mb-10">
+            <span className="text-[10px] font-black tracking-[0.3em] text-gold-muted uppercase">TRUSTED BY BUSINESSES WORLDWIDE</span>
+          </div>
+          <div className="w-full mask-gradient">
+            <div className="animate-marquee gap-16 md:gap-24 py-4 flex items-center">
+              {[...["Microsoft", "AWS", "Google Cloud", "ORACLE", "CISCO", "DELL", "vmware", "IBM", "Intel", "Salesforce"], ...["Microsoft", "AWS", "Google Cloud", "ORACLE", "CISCO", "DELL", "vmware", "IBM", "Intel", "Salesforce"]].map((brand, idx) => (
+                <span key={idx} className="text-xl md:text-2xl font-black text-deep-black opacity-60 grayscale hover:opacity-100 hover:grayscale-0 tracking-tighter hover:text-gold-primary transition-all duration-300 cursor-pointer shrink-0">
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Section>
+
         <Section className="bg-white pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -133,7 +149,27 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* Featured Projects Section - Re-Applied Premium Dark */}
+        {/* Expertise Section */}
+        <Section className="bg-white">
+          <div className="text-center mb-20">
+            <span className="section-tag text-center">OUR EXPERTISE</span>
+            <h2 className="text-4xl md:text-5xl font-black text-deep-black">Solutions That Drive Real Impact</h2>
+            <p className="text-black/40 mt-4 max-w-2xl mx-auto">Scalable, secure, and high-performance digital products engineered for excellence.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {services.map((service, index) => (
+              <div key={index} className="p-8 rounded-3xl bg-light-gray/20 border border-black/5 hover:border-gold-primary/30 transition-all group text-left">
+                <div className="w-12 h-12 rounded-xl bg-gold-primary/10 flex items-center justify-center text-gold-primary mb-6 group-hover:scale-110 transition-transform">
+                  {service.icon}
+                </div>
+                <h3 className="text-lg font-black text-deep-black mb-3">{service.title}</h3>
+                <p className="text-black/40 text-sm leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* Featured Projects Section */}
         <Section className="bg-[#050505] text-white">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
             <div className="max-w-2xl text-left">
@@ -205,26 +241,6 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* Expertise Section - Transitioned to Clean White */}
-        <Section className="bg-white">
-          <div className="text-center mb-20">
-            <span className="section-tag text-center">OUR EXPERTISE</span>
-            <h2 className="text-4xl md:text-5xl font-black text-deep-black">Solutions That Drive Real Impact</h2>
-            <p className="text-black/40 mt-4 max-w-2xl mx-auto">Scalable, secure, and high-performance digital products engineered for excellence.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {services.map((service, index) => (
-              <div key={index} className="p-8 rounded-3xl bg-light-gray/20 border border-black/5 hover:border-gold-primary/30 transition-all group text-left">
-                <div className="w-12 h-12 rounded-xl bg-gold-primary/10 flex items-center justify-center text-gold-primary mb-6 group-hover:scale-110 transition-transform">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-black text-deep-black mb-3">{service.title}</h3>
-                <p className="text-black/40 text-sm leading-relaxed">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
         <Section className="bg-[#0a0a0a] text-white">
           <div className="text-center mb-16">
             <span className="section-tag border-gold-primary/30 text-gold-primary">WHY DIVINECORE TECHNOLOGIES</span>
@@ -282,6 +298,8 @@ export default function Home() {
           </div>
         </Section>
 
+        <Integrations />
+
         <Section className="bg-black py-16 border-y border-white/5">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -310,19 +328,6 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-black text-deep-black">Frequently Asked Questions</h2>
           </div>
           <FAQ />
-        </Section>
-
-        <Section className="bg-white py-20">
-          <div className="text-center mb-12">
-            <span className="text-[10px] font-black tracking-[0.3em] text-gold-muted uppercase">TRUSTED BY BUSINESSES WORLDWIDE</span>
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale">
-            {["Microsoft", "AWS", "Google Cloud", "ORACLE", "CISCO", "DELL", "vmware"].map((brand) => (
-              <span key={brand} className="text-xl md:text-2xl font-black text-deep-black tracking-tighter">
-                {brand}
-              </span>
-            ))}
-          </div>
         </Section>
       </div>
     </>

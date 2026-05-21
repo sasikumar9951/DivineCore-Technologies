@@ -14,6 +14,7 @@
   --animate-glow: glow 2s ease-in-out infinite alternate;
   --animate-ping-slow: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-spin-slow: spin 8s linear infinite;
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 @keyframes fade-in {
@@ -106,4 +107,25 @@ body::before {
   font-size: 0.75rem;
   display: block;
   margin-bottom: 1rem;
+}
+
+/* Marquee infinite scroll */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }

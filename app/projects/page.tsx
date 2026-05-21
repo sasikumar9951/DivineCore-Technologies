@@ -55,7 +55,8 @@ export default function Projects() {
       tab: "SaaS / Admin",
       description: "Comprehensive admin dashboard for the Swan Match marriage app — user management, verification workflows, analytics, content moderation, and reporting tools.",
       tech: ["React", "Node.js", "Firebase"],
-      status: "Ongoing",
+      status: "Completed",
+      link: "https://www.swan-match.com/login",
       imageUrl: "/images/swan.png"
     },
     {
