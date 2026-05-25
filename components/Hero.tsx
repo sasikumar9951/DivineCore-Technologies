@@ -99,7 +99,7 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/[0.06]">
               {[
                 {
-                  value: "50+",
+                  value: "25+",
                   label: "Projects Delivered",
                   icon: (
                     <svg className="w-5 h-5 text-gold-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
                   )
                 },
                 {
-                  value: "30+",
+                  value: "15+",
                   label: "Happy Clients",
                   icon: (
                     <svg className="w-5 h-5 text-gold-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">

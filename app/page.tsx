@@ -76,8 +76,8 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { label: "Happy Clients", value: "25+", icon: "👥" },
-    { label: "Projects Delivered", value: "50+", icon: "🚀" },
+    { label: "Happy Clients", value: "15+", icon: "👥" },
+    { label: "Projects Delivered", value: "25+", icon: "🚀" },
     { label: "Founded In", value: "2024", icon: "🏆" },
     { label: "Location", value: "Salem", icon: "🌐" }
   ];
@@ -121,7 +121,7 @@ export default function Home() {
                   <p className="text-gold-muted font-bold text-xs uppercase tracking-widest">Year Founded</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-black text-deep-black">50+</h4>
+                  <h4 className="text-3xl font-black text-deep-black">25+</h4>
                   <p className="text-gold-muted font-bold text-xs uppercase tracking-widest">Projects Done</p>
                 </div>
               </div>
