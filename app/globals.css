@@ -8,7 +8,7 @@
   --color-dark-gray: #1a1a1a;
   --color-light-gray: #f8f9fa;
   
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Outfit", var(--font-outfit), sans-serif;
   
   --animate-fade-in: fade-in 0.5s ease-out;
   --animate-glow: glow 2s ease-in-out infinite alternate;
@@ -128,4 +128,26 @@ body::before {
 .mask-gradient {
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+/* 3D Cube Utilities */
+.transform-style-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes float-cube {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(-20deg) rotateY(180deg) translateY(-15px);
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(360deg) translateY(0px);
+  }
+}
+
+.animate-float-cube {
+  animation: float-cube 8s ease-in-out infinite;
 }

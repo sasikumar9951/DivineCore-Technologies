@@ -64,8 +64,16 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-black text-sm uppercase tracking-widest mb-6">Contact</h4>
             <ul className="space-y-4 text-sm text-white/40">
-              <li className="flex items-center gap-2"><span>📞</span> +91 74486 09951</li>
-              <li className="flex items-center gap-2"><span>✉️</span> info@divinecoretech.in</li>
+              <li className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span>📞</span>
+                  <a href="tel:+917448609951" className="hover:text-gold-primary transition-colors">+91 74486 09951</a>
+                </div>
+                <div className="pl-6">
+                  <a href="tel:+916369081530" className="hover:text-gold-primary transition-colors">+91 63690 81530</a>
+                </div>
+              </li>
+              <li className="flex items-center gap-2"><span>✉️</span> <a href="mailto:info@divinecoretech.in" className="hover:text-gold-primary transition-colors">info@divinecoretech.in</a></li>
               <li className="flex items-start gap-2 max-w-[250px]">
                 <span className="mt-0.5">📍</span>
                 <span>

@@ -88,19 +88,9 @@ export default function Home() {
       <div className={`transition-opacity duration-1000 ${loading ? "opacity-0 h-0 overflow-hidden" : "opacity-100"}`}>
         <Hero
           title="Engineering the Future of Digital Excellence"
-          subtitle="DivineCore Technologies delivers high-performance, enterprise-grade software solutions that transform complex business challenges into seamless digital experiences."
+          subtitle="We build high-performance, scalable and secure digital solutions that help businesses innovate, grow and lead in the digital era."
           isHome
-        >
-          <div className="flex flex-col sm:flex-row gap-6 mt-12 w-full sm:w-auto">
-            <Link href="/services" className="gold-gradient text-deep-black px-12 py-5 rounded-2xl font-black text-lg hover:shadow-[0_20px_40px_rgba(212,175,55,0.3)] transition-all active:scale-95 text-center flex items-center justify-center gap-3">
-              Explore Services
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </Link>
-            <Link href="/projects" className="bg-white/5 border border-white/10 text-white px-12 py-5 rounded-2xl font-black text-lg hover:bg-white hover:text-deep-black transition-all active:scale-95 text-center flex items-center justify-center">
-              View Projects
-            </Link>
-          </div>
-        </Hero>
+        />
 
         <Section className="bg-white py-16 border-b border-black/5 overflow-hidden">
           <div className="text-center mb-10">
@@ -300,19 +290,7 @@ export default function Home() {
 
         <Integrations />
 
-        <Section className="bg-black py-16 border-y border-white/5">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="flex items-center justify-center gap-4 group">
-                <span className="text-3xl grayscale group-hover:grayscale-0 transition-all">{stat.icon}</span>
-                <div>
-                  <h3 className="text-4xl font-black text-white">{stat.value}</h3>
-                  <p className="text-white/40 uppercase tracking-widest text-[10px] font-bold">{stat.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
+
 
         <Section className="bg-white">
           <div className="text-center mb-16">

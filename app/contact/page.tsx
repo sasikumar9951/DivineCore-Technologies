@@ -126,8 +126,17 @@ export default function Contact() {
             <h3 className="text-2xl font-black text-deep-black">Contact Information</h3>
             <div className="space-y-8">
               {[
-                { label: "Phone", value: "+91 74486 09951", icon: "📞" },
-                { label: "Email", value: "info@divinecoretech.in", icon: "✉️" },
+                { 
+                  label: "Phone", 
+                  value: (
+                    <span className="flex flex-col gap-1.5">
+                      <a href="tel:+917448609951" className="hover:text-gold-primary transition-colors">+91 74486 09951</a>
+                      <a href="tel:+916369081530" className="hover:text-gold-primary transition-colors">+91 63690 81530</a>
+                    </span>
+                  ), 
+                  icon: "📞" 
+                },
+                { label: "Email", value: <a href="mailto:info@divinecoretech.in" className="hover:text-gold-primary transition-colors">info@divinecoretech.in</a>, icon: "✉️" },
                 { label: "Address", value: "No 5, 2nd Floor, Kandha Gounder Complex, Opp. Petrol Bunk, Meyyanur Main Road, Salem - 636004, Tamilnadu, India", icon: "📍" }
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-start group">
