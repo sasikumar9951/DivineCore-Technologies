@@ -66,7 +66,12 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-white/40">
               <li className="flex items-center gap-2"><span>📞</span> +91 74486 09951</li>
               <li className="flex items-center gap-2"><span>✉️</span> info@divinecoretech.in</li>
-              <li className="flex items-center gap-2 max-w-[200px]"><span>📍</span> Salem, Tamilnadu, India</li>
+              <li className="flex items-start gap-2 max-w-[250px]">
+                <span className="mt-0.5">📍</span>
+                <span>
+                  No 5, 2nd Floor, Kandha Gounder Complex, Opp. Petrol Bunk, Meyyanur Main Road, Salem - 636004
+                </span>
+              </li>
             </ul>
           </div>
         </div>

@@ -86,6 +86,7 @@ export default function Contact() {
                 <select
                   name="subject"
                   required
+                  defaultValue=""
                   className="w-full bg-light-gray border border-black/5 rounded-xl px-6 py-4 text-deep-black focus:outline-none focus:border-gold-primary transition-colors appearance-none cursor-pointer pr-12"
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4AF37' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E")`,
@@ -94,7 +95,7 @@ export default function Contact() {
                     backgroundSize: '1.2rem'
                   }}
                 >
-                  <option value="" disabled selected>Select Subject</option>
+                  <option value="" disabled>Select Subject</option>
                   <option value="Custom Software">Custom Software Development</option>
                   <option value="Cloud Infrastructure">Cloud Infrastructure</option>
                   <option value="Web & Mobile Apps">Web & Mobile Apps</option>
@@ -127,7 +128,7 @@ export default function Contact() {
               {[
                 { label: "Phone", value: "+91 74486 09951", icon: "📞" },
                 { label: "Email", value: "info@divinecoretech.in", icon: "✉️" },
-                { label: "Address", value: "DivineCore Technologies, Salem, Tamilnadu, India", icon: "📍" }
+                { label: "Address", value: "No 5, 2nd Floor, Kandha Gounder Complex, Opp. Petrol Bunk, Meyyanur Main Road, Salem - 636004, Tamilnadu, India", icon: "📍" }
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-start group">
                   <div className="w-12 h-12 rounded-xl bg-gold-primary/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
