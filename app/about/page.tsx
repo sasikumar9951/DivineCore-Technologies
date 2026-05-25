@@ -23,7 +23,7 @@ export default function About() {
   ];
 
   const milestones = [
-    { year: "2025", title: "Founded", description: "Founded in Salem with a vision to deliver premium IT solutions." },
+    { year: "2024", title: "Founded", description: "Founded in Salem with a vision to deliver premium IT solutions." },
     { year: "2025", title: "Growth", description: "Successfully delivered our first 10+ projects for local enterprises." },
     { year: "2026", title: "Expansion", description: "Expanded our team and service offerings to global clients." },
     { year: "2026+", title: "Leading", description: "Continuing to innovate and empower businesses with modern tech." }
@@ -33,7 +33,7 @@ export default function About() {
     <div className="bg-white">
       <Hero
         title="Engineering Tomorrow's Excellence Today"
-        subtitle="Founded in 2025, DivineCore Technologies is a premier global software development and digital transformation agency dedicated to creating high-impact technological solutions."
+        subtitle="Founded in 2024, DivineCore Technologies is a premier global software development and digital transformation agency dedicated to creating high-impact technological solutions."
         image={
           <img src="/images/about_hero.png" alt="About DivineCore" className="rounded-3xl shadow-2xl border border-white/10" />
         }

@@ -87,8 +87,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-white/20 uppercase tracking-widest">
           <p>© 2026 DivineCore Technologies. All rights reserved.</p>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-gold-primary transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-gold-primary transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy" className="hover:text-gold-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gold-primary transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

@@ -78,7 +78,7 @@ export default function Home() {
   const stats = [
     { label: "Happy Clients", value: "25+", icon: "👥" },
     { label: "Projects Delivered", value: "50+", icon: "🚀" },
-    { label: "Founded In", value: "2025", icon: "🏆" },
+    { label: "Founded In", value: "2024", icon: "🏆" },
     { label: "Location", value: "Salem", icon: "🌐" }
   ];
 
@@ -117,7 +117,7 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-3xl font-black text-deep-black">2025</h4>
+                  <h4 className="text-3xl font-black text-deep-black">2024</h4>
                   <p className="text-gold-muted font-bold text-xs uppercase tracking-widest">Year Founded</p>
                 </div>
                 <div>
