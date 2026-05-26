@@ -46,11 +46,11 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Link href="/services" className="gold-gradient text-deep-black px-10 py-4.5 rounded-xl font-black text-sm uppercase tracking-wider hover:shadow-[0_15px_30px_rgba(212,175,55,0.35)] transition-all active:scale-95 text-center flex items-center justify-center gap-2 group">
+                <Link href="/services" className="gold-gradient text-deep-black px-10 py-4.5 rounded-xl font-black text-sm uppercase tracking-wider hover:shadow-[0_15px_30px_rgba(212,175,55,0.35)] transition-all active:scale-95 text-center flex items-center justify-center gap-2 group shimmer-btn">
                   Explore Services 
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
-                <Link href="/projects" className="bg-white/5 border border-white/10 hover:border-gold-primary/40 text-white px-10 py-4.5 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-white/[0.08] transition-all active:scale-95 text-center flex items-center justify-center">
+                <Link href="/projects" className="bg-white/5 border border-white/10 hover:border-gold-primary/40 text-white px-10 py-4.5 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-white/[0.08] transition-all active:scale-95 text-center flex items-center justify-center shimmer-btn">
                   View Projects
                 </Link>
               </div>

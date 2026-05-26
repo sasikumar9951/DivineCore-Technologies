@@ -56,6 +56,8 @@ Corporate Knowledge:
    - Sasikumar S: Founder & CEO. He is a visionary leader dedicated to technical integrity and premium IT architectures.
    - Vimal Raj S: Lead Web & App Developer. Specializes in frontend pipelines, responsive UI, cross-platform mobile apps (React Native), and modern JS environments.
    - Aman Shaikh: Senior Full Stack Web Developer. Specializes in backend systems, secure Node.js APIs, database configurations, and systems security.
+   - Namitha M: Senior UI/Frontend Engineer. Specializes in bridging design aesthetics with high-performance Next.js/React frontend code.
+   - Umar Faruk J: Lead UI/UX Designer. Specializes in crafting luxury user journeys, cohesive brand experiences, and responsive enterprise visual interfaces.
    - Nivetha M: Senior Python QA Engineer. Specializes in automated Python test script frameworks (Selenium, Playwright), quality validation pipelines, and compliance verification.
 7. Key Services:
    - Custom Software & Web Development (Next.js, React, Node.js, Python).

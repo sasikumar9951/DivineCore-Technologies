@@ -38,11 +38,19 @@ export default function Team() {
     },
     {
       name: "Namitha M",
-      role: "Lead Web UI/UX Designer",
-      dept: "Design",
-      bio: "Crafts luxury user journeys, responsive interface designs, and cohesive visual styles for enterprise web applications.",
+      role: "Senior UI/Frontend Engineer",
+      dept: "Engineering",
+      bio: "Bridges the gap between creative design concepts and high-performance, pixel-perfect frontend React and Next.js interfaces.",
       initials: "NM",
       email: "namitha@divinecoretech.in"
+    },
+    {
+      name: "Umar Faruk J",
+      role: "Lead UI/UX Designer",
+      dept: "Design",
+      bio: "Crafts luxury user journeys, responsive interface designs, and cohesive visual brand styles for enterprise digital platforms.",
+      initials: "UF",
+      email: "umar@divinecoretech.in"
     },
     {
       name: "Saranya M",
@@ -106,9 +114,9 @@ export default function Team() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-8 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
+              className={`px-8 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all cursor-pointer hover:scale-105 active:scale-95 ${
                 activeTab === tab
-                  ? "gold-gradient text-deep-black shadow-lg"
+                  ? "gold-gradient text-deep-black shadow-lg shimmer-btn"
                   : "bg-light-gray text-black/40 hover:bg-black/5"
               }`}
             >
@@ -120,7 +128,7 @@ export default function Team() {
         {/* Team Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {filteredTeam.map((member, index) => (
-            <div key={index} className="group relative rounded-[2rem] p-8 border border-black/5 bg-light-gray/10 hover:border-gold-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full text-left">
+            <div key={index} className="group relative rounded-[2rem] p-8 border border-black/5 bg-light-gray/10 hover:border-gold-primary/30 hover-float flex flex-col h-full text-left animate-fade-in-scale">
               {/* Category Badge & Details */}
               <div className="flex-grow space-y-4">
                 <div className="flex justify-between items-start">

@@ -67,13 +67,19 @@ export default function AIChatWidget() {
       return "We offer a suite of high-end digital services:\n\n* **Custom Software & Web Development** (Next.js, Node.js, Python, React)\n* **Mobile App Development** (High-performance iOS & Android apps)\n* **Cloud Solutions & DevOps** (AWS, Azure pipelines)\n* **Cybersecurity & Security Auditing** (Vulnerability assessments)\n* **BPO & High-Precision Data Entry** (Digitization, QA operations)\n\nWould you like to learn more about a specific service?";
     }
     if (query.includes("team") || query.includes("members") || query.includes("who works") || query.includes("experts") || query.includes("employees") || query.includes("staff") || query.includes("people")) {
-      return "Our core powerhouse consists of dedicated domain experts:\n\n* **Sasikumar S** (Founder & CEO): Driving overall tech architecture & executive vision.\n* **Vimal Raj S** (Lead Web & App Developer): Leading high-performance frontend interfaces & mobile apps.\n* **Aman Shaikh** (Senior Full Stack Web Developer): Engineering secure server APIs & database schemas.\n* **Nivetha M** (Senior Python QA Engineer): Overseeing automated testing pipelines & compliance assurance.\n\nAll our custom code and operations are protected under strict Nondisclosure Agreements (NDAs).";
+      return "Our core powerhouse consists of dedicated domain experts:\n\n* **Sasikumar S** (Founder & CEO): Driving overall tech architecture & executive vision.\n* **Vimal Raj S** (Lead Web & App Developer): Leading high-performance frontend interfaces & mobile apps.\n* **Aman Shaikh** (Senior Full Stack Web Developer): Engineering secure server APIs & database schemas.\n* **Namitha M** (Senior UI/Frontend Engineer): Bridging creative designs with robust Next.js frontend code.\n* **Umar Faruk J** (Lead UI/UX Designer): Crafting high-end user journeys & responsive brand interfaces.\n* **Nivetha M** (Senior Python QA Engineer): Overseeing automated testing pipelines & compliance assurance.\n\nAll our custom code and operations are protected under strict Nondisclosure Agreements (NDAs).";
     }
     if (query.includes("vimal") || query.includes("vimalraj")) {
       return "**Vimal Raj S** is our **Lead Web & App Developer**. He specializes in frontend pipelines, responsive UI, cross-platform mobile apps (React Native), and modern JS environments.";
     }
     if (query.includes("aman") || query.includes("shaikh")) {
       return "**Aman Shaikh** is our **Senior Full Stack Web Developer**. He specializes in backend systems, secure Node.js APIs, database configurations, and systems security.";
+    }
+    if (query.includes("namitha")) {
+      return "**Namitha M** is our **Senior UI/Frontend Engineer**. She specializes in bridging design aesthetics with high-performance Next.js/React frontend code architectures.";
+    }
+    if (query.includes("umar") || query.includes("faruk")) {
+      return "**Umar Faruk J** is our **Lead UI/UX Designer**. He specializes in crafting luxury user journeys, cohesive brand experiences, and responsive enterprise visual interfaces.";
     }
     if (query.includes("nivetha")) {
       return "**Nivetha M** is our **Senior Python QA Engineer**. She specializes in automated Python test script frameworks (Selenium, Playwright), quality validation pipelines, and compliance verification.";
@@ -232,7 +238,7 @@ export default function AIChatWidget() {
         <div className="absolute inset-0 bg-gradient-to-tr from-gold-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         {/* Glow pulsing ring around the button */}
-        <div className="absolute -inset-1.5 rounded-full border border-gold-primary/20 animate-pulse pointer-events-none" />
+        <div className="absolute -inset-1.5 rounded-full border border-gold-primary/20 animate-pulse-gold pointer-events-none" />
 
         {isOpen ? (
           <svg
