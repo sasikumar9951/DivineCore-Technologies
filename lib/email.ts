@@ -39,7 +39,8 @@ export async function sendConfirmationEmail({
   const mailOptions = {
     from: `"DivineCore Technologies Recruitment" <${user}>`,
     to,
-    subject: `Application Received - ${role} - ${applicationId}`,
+    subject: "Application Received – DivineCore Technologies",
+    text: `Thank you for applying to DivineCore Technologies.\n\nWe have successfully received your application. Our recruitment team will review your profile and contact shortlisted candidates for the next stage of the hiring process.\n\nRegards,\nDivineCore Technologies`,
     html: `
       <!DOCTYPE html>
       <html>
@@ -64,59 +65,57 @@ export async function sendConfirmationEmail({
             border: 1px solid #e1e8ed;
           }
           .header {
-            background-color: #0b3c5d;
-            padding: 40px 20px;
+            background-color: #0a0a0a;
+            padding: 30px 20px;
             text-align: center;
             color: #ffffff;
+            border-bottom: 3px solid #D4AF37;
           }
           .header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             letter-spacing: 0.5px;
+            color: #ffffff;
           }
           .header p {
             margin: 5px 0 0 0;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #328cc1;
+            color: #D4AF37;
             font-weight: bold;
           }
           .content {
             padding: 30px 40px;
             color: #333333;
             line-height: 1.6;
-          }
-          .content h2 {
-            font-size: 18px;
-            margin-top: 0;
-            color: #0b3c5d;
+            font-size: 14px;
           }
           .details-box {
-            background-color: #f8fafd;
-            border-left: 4px solid #328cc1;
+            background-color: #f8fafc;
+            border-left: 4px solid #D4AF37;
             padding: 15px 20px;
             margin: 20px 0;
             border-radius: 4px;
           }
           .details-box p {
             margin: 8px 0;
-            font-size: 14px;
+            font-size: 13px;
           }
           .details-box strong {
-            color: #0b3c5d;
+            color: #0a0a0a;
           }
           .footer {
             background-color: #f8fafc;
             padding: 20px;
             text-align: center;
-            font-size: 12px;
+            font-size: 11px;
             color: #777777;
             border-top: 1px solid #e1e8ed;
           }
           .footer a {
-            color: #328cc1;
+            color: #D4AF37;
             text-decoration: none;
           }
         </style>
@@ -128,18 +127,16 @@ export async function sendConfirmationEmail({
             <p>Recruitment Desk</p>
           </div>
           <div class="content">
-            <h2>Hello ${candidateName},</h2>
-            <p>Thank you for applying to DivineCore Technologies. Your application has been submitted successfully.</p>
-            <p>Our recruitment team will review your profile and contact shortlisted candidates for further rounds.</p>
+            <p>Thank you for applying to DivineCore Technologies.</p>
+            <p>We have successfully received your application. Our recruitment team will review your profile and contact shortlisted candidates for the next stage of the hiring process.</p>
             
             <div class="details-box">
               <p><strong>Application ID:</strong> ${applicationId}</p>
-              <p><strong>Position:</strong> ${role}</p>
-              <p><strong>Type:</strong> ${applicationType}</p>
+              <p><strong>Position Applied For:</strong> ${role}</p>
+              <p><strong>Application Type:</strong> ${applicationType}</p>
             </div>
 
-            <p>If we require any further details or schedule an interview, we will reach out to you on this email address or your mobile number.</p>
-            <p>Best Regards,<br><strong>DivineCore Technologies Recruitment Team</strong></p>
+            <p>Regards,<br><strong>DivineCore Technologies</strong></p>
           </div>
           <div class="footer">
             <p>&copy; 2026 DivineCore Technologies. All rights reserved.</p>

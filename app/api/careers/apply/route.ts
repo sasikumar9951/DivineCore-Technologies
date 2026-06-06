@@ -18,6 +18,8 @@ export async function POST(req: NextRequest) {
     const applicationType = formData.get("applicationType") as "Internship" | "Full-Time";
     const role = formData.get("role") as string;
     const coverLetter = (formData.get("coverLetter") as string) || "";
+    const linkedIn = (formData.get("linkedIn") as string) || "";
+    const portfolio = (formData.get("portfolio") as string) || "";
     const resumeFile = formData.get("resume") as File;
 
     if (!fullName || !emailAddress || !mobileNumber || !resumeFile || !applicationType || !role) {
@@ -56,6 +58,8 @@ export async function POST(req: NextRequest) {
       role,
       resumeUrl,
       coverLetter,
+      linkedIn,
+      portfolio,
     });
 
     // Dispatch confirmation email

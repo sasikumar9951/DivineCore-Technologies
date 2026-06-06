@@ -123,6 +123,8 @@ export default function Careers() {
   const [experience, setExperience] = useState("");
   const [resume, setResume] = useState<File | null>(null);
   const [coverLetter, setCoverLetter] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [portfolio, setPortfolio] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -168,6 +170,8 @@ export default function Careers() {
     setExperience("");
     setResume(null);
     setCoverLetter("");
+    setLinkedIn("");
+    setPortfolio("");
     setApplicationId(null);
     setSuccessMsg(null);
     setErrorMsg(null);
@@ -186,7 +190,7 @@ export default function Careers() {
       setErrorMsg("Please select the position you are applying for.");
       return;
     }
-    if (!fullName || !emailAddress || !mobileNumber || !currentLocation || !education || !resume) {
+    if (!fullName || !emailAddress || !mobileNumber || !currentLocation || !education || experience === "" || !resume) {
       setErrorMsg("Please fill in all required fields and upload your resume.");
       return;
     }
@@ -203,6 +207,8 @@ export default function Careers() {
     formData.append("applicationType", appType);
     formData.append("role", role);
     formData.append("coverLetter", coverLetter);
+    formData.append("linkedIn", linkedIn);
+    formData.append("portfolio", portfolio);
     formData.append("resume", resume);
 
     try {
@@ -260,12 +266,28 @@ export default function Careers() {
       <Section className="bg-white py-20">
         <div className="max-w-7xl mx-auto">
           
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="text-blue-600 font-black text-xs uppercase tracking-widest bg-blue-50 px-4 py-2 rounded-full">CAREERS PORTAL</span>
             <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4">Positions Explorer & Application</h2>
             <p className="text-slate-500 mt-3 text-base max-w-2xl mx-auto">
-              Read about our available roles on the left, and click Apply Now or Quick Apply to open the application portal.
+              Explore available roles below and apply online. Our team will review your profile.
             </p>
+          </div>
+
+          {/* Hiring Banner */}
+          <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 border border-gold-primary/30 p-6 md:p-8 rounded-3xl text-center mb-12 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-primary/5 via-transparent to-transparent pointer-events-none" />
+            <div className="relative z-10 space-y-2">
+              <span className="text-gold-primary text-xs font-black tracking-[0.25em] uppercase bg-gold-primary/10 border border-gold-primary/20 px-3 py-1 rounded-full inline-block">
+                🚀 Join DivineCore Technologies
+              </span>
+              <h3 className="text-xl md:text-2xl font-black text-white">
+                Now Hiring for Full-Time & Internship Opportunities
+              </h3>
+              <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed font-light">
+                We are actively looking for freshers and experienced candidates who are eager to grow in AI Operations, Conversation Audits, and Quality Assurance at our Salem Hub.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -282,21 +304,39 @@ export default function Careers() {
 
                 <div className="space-y-6">
                   {FULL_TIME_OPENINGS.map((job) => (
-                    <div key={job.title} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 hover:border-blue-300 transition-all duration-300 relative">
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
+                    <div key={job.title} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 hover:border-blue-300 transition-all duration-300 relative text-left">
+                      <div className="flex justify-between items-start mb-4 gap-4">
+                        <div className="space-y-2">
                           <h4 className="text-lg font-black text-slate-900">{job.title}</h4>
-                          <p className="text-blue-600 font-extrabold text-xs mt-0.5">{job.salaryOrStipend}</p>
+                          <span className="inline-block text-xs font-black text-blue-700 bg-blue-50 border border-blue-100/50 px-3.5 py-1.5 rounded-full">
+                            💰 {job.salaryOrStipend}
+                          </span>
                         </div>
                         <button 
                           onClick={() => handleQuickApply(job)}
-                          className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-black text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                          className="bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-md shadow-blue-500/10 cursor-pointer shrink-0 font-bold"
                         >
-                          Quick Apply
+                          Apply Now
                         </button>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200/60 text-xs">
+                      {/* Job Metadata tags */}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 border-y border-slate-200/60 py-3.5 my-4 text-xs font-bold text-slate-600">
+                        <div className="flex items-center gap-1.5">
+                          <span>📍</span>
+                          <span><strong>Location:</strong> Salem, TN</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span>🏢</span>
+                          <span><strong>Work Mode:</strong> WFO</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span>🎓</span>
+                          <span>Freshers Can Apply</span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                         <div>
                           <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-1.5">Responsibilities</p>
                           <ul className="space-y-1 text-slate-600">
@@ -334,21 +374,39 @@ export default function Careers() {
 
                 <div className="space-y-6">
                   {INTERNSHIPS.map((job) => (
-                    <div key={job.title} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 hover:border-cyan-400 transition-all duration-300 relative">
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
+                    <div key={job.title} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 hover:border-cyan-400 transition-all duration-300 relative text-left">
+                      <div className="flex justify-between items-start mb-4 gap-4">
+                        <div className="space-y-2">
                           <h4 className="text-lg font-black text-slate-900">{job.title}</h4>
-                          <p className="text-cyan-600 font-extrabold text-xs mt-0.5">Stipend: {job.salaryOrStipend} ({job.duration})</p>
+                          <span className="inline-block text-xs font-black text-cyan-700 bg-cyan-50 border border-cyan-100/50 px-3.5 py-1.5 rounded-full">
+                            💰 Stipend: {job.salaryOrStipend} ({job.duration})
+                          </span>
                         </div>
                         <button 
                           onClick={() => handleQuickApply(job)}
-                          className="bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-black text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                          className="bg-cyan-600 hover:bg-cyan-700 text-white font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-md shadow-cyan-500/10 cursor-pointer shrink-0 font-bold"
                         >
-                          Quick Apply
+                          Apply Now
                         </button>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200/60 text-xs">
+                      {/* Job Metadata tags */}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 border-y border-slate-200/60 py-3.5 my-4 text-xs font-bold text-slate-600">
+                        <div className="flex items-center gap-1.5">
+                          <span>📍</span>
+                          <span><strong>Location:</strong> Salem, TN</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span>🏢</span>
+                          <span><strong>Work Mode:</strong> WFO</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span>🎓</span>
+                          <span>Freshers Can Apply</span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                         <div>
                           <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-1.5">Responsibilities</p>
                           <ul className="space-y-1 text-slate-600">
@@ -493,6 +551,22 @@ export default function Careers() {
         </div>
       </Section>
 
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/917448609951?text=Hello%20DivineCore%20Technologies%2C%20I%20would%20like%20to%20know%20more%20about%20the%20current%20job%20openings."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center group border-2 border-white/20"
+        aria-label="Contact recruitment on WhatsApp"
+      >
+        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.967C16.48 1.974 14.007 1.95 12.01 1.95c-5.437 0-9.862 4.371-9.866 9.8.001 2.029.531 4.02 1.543 5.779L2.732 21.03l3.915-1.876zm13.111-7.79c-.318-.159-1.884-.93-2.176-1.037-.291-.106-.503-.159-.715.159-.211.318-.819 1.037-1.004 1.248-.186.213-.37.24-.689.081-1.156-.479-1.923-.974-2.69-2.28-.182-.312-.182-.537-.024-.716.143-.162.318-.371.477-.556.16-.186.213-.318.318-.53.106-.213.053-.4-.027-.559-.079-.16-.715-1.722-.979-2.36-.258-.622-.519-.538-.715-.548-.185-.01-.397-.011-.61-.011-.211 0-.556.08-.847.4-.291.318-1.111 1.087-1.111 2.65 0 1.563 1.139 3.076 1.297 3.289.16.213 2.24 3.42 5.426 4.795.758.328 1.348.524 1.81.67.76.241 1.451.207 2.001.125.613-.092 1.884-.77 2.148-1.478.265-.708.265-1.313.186-1.438-.08-.125-.292-.212-.61-.371z"/>
+        </svg>
+        <span className="absolute right-14 bg-slate-900 text-white text-[10px] font-black px-3.5 py-2 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out whitespace-nowrap pointer-events-none uppercase tracking-widest border border-slate-800">
+          WhatsApp Support
+        </span>
+      </a>
+
       {/* Modal Overlay */}
       {isModalOpen && (
         <div 
@@ -530,8 +604,11 @@ export default function Careers() {
                   </div>
                   
                   <div className="max-w-md mx-auto text-left bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3">
+                    <p className="text-slate-700 text-xs leading-relaxed text-center font-bold">
+                      Thank you for applying to DivineCore Technologies.
+                    </p>
                     <p className="text-slate-600 text-xs leading-relaxed text-center font-medium">
-                      {successMsg}
+                      Your application has been received successfully. Our recruitment team will review your profile and contact shortlisted candidates.
                     </p>
                     <p className="text-slate-400 text-[10px] text-center italic border-t border-slate-200/60 pt-3">
                       A confirmation email has been dispatched to <span className="font-bold text-slate-600">{emailAddress}</span>.
@@ -664,9 +741,9 @@ export default function Careers() {
                         />
                       </div>
 
-                      {/* Education Qualification */}
+                      {/* Highest Qualification */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Education Qualification *</label>
+                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Highest Qualification *</label>
                         <input 
                           type="text" 
                           required
@@ -679,13 +756,41 @@ export default function Careers() {
 
                       {/* Years of Experience */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Years of Experience (Leave blank or 0 if fresher)</label>
+                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Years of Experience * (Enter 0 if fresher)</label>
                         <input 
                           type="number" 
+                          required
                           min="0"
                           placeholder="e.g. 0"
                           value={experience}
                           onChange={(e) => setExperience(e.target.value)}
+                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Optional LinkedIn & Portfolio */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {/* LinkedIn */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">LinkedIn Profile (Optional)</label>
+                        <input 
+                          type="url" 
+                          placeholder="e.g. https://linkedin.com/in/username"
+                          value={linkedIn}
+                          onChange={(e) => setLinkedIn(e.target.value)}
+                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      {/* Portfolio */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Portfolio Website (Optional)</label>
+                        <input 
+                          type="url" 
+                          placeholder="e.g. https://myportfolio.com"
+                          value={portfolio}
+                          onChange={(e) => setPortfolio(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                         />
                       </div>

@@ -15,6 +15,8 @@ interface CandidateApplication {
   experience: number;
   resumeUrl: string;
   coverLetter?: string;
+  linkedIn?: string;
+  portfolio?: string;
   status: "New Application" | "Under Review" | "Shortlisted" | "Interview Scheduled" | "Selected" | "Rejected";
   appliedAt: string;
 }
@@ -138,7 +140,11 @@ export default function CareersAdmin() {
   // Filter logic
   const filteredApps = applications.filter((app) => {
     const matchesType = filterType === "All" || app.applicationType === filterType;
-    const matchesRole = filterRole === "All" || app.role === filterRole;
+    const matchesRole = 
+      filterRole === "All" || 
+      (filterRole === "AI Conversations" && app.role.includes("AI Conversations")) ||
+      (filterRole === "Quality Checking" && app.role.includes("Quality Checking")) ||
+      app.role === filterRole;
     const matchesStatus = filterStatus === "All" || app.status === filterStatus;
     const matchesSearch = 
       app.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -210,6 +216,14 @@ export default function CareersAdmin() {
     );
   }
 
+  // Analytics Calculations
+  const totalApps = applications.length;
+  const fullTimeApps = applications.filter((app) => app.applicationType === "Full-Time").length;
+  const internshipApps = applications.filter((app) => app.applicationType === "Internship").length;
+  const shortlistedApps = applications.filter((app) => app.status === "Shortlisted").length;
+  const interviewApps = applications.filter((app) => app.status === "Interview Scheduled").length;
+  const selectedApps = applications.filter((app) => app.status === "Selected").length;
+
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 font-sans p-6 md:p-10">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -241,6 +255,34 @@ export default function CareersAdmin() {
             >
               Log Out
             </button>
+          </div>
+        </div>
+
+        {/* Analytics Cards Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-left">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Total Applications</span>
+            <span className="text-2xl font-black text-slate-900 mt-1 block">{totalApps}</span>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-left">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Full-Time</span>
+            <span className="text-2xl font-black text-blue-600 mt-1 block">{fullTimeApps}</span>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-left">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Internship</span>
+            <span className="text-2xl font-black text-cyan-600 mt-1 block">{internshipApps}</span>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-left">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Shortlisted</span>
+            <span className="text-2xl font-black text-purple-600 mt-1 block">{shortlistedApps}</span>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-left">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Interview Scheduled</span>
+            <span className="text-2xl font-black text-amber-600 mt-1 block">{interviewApps}</span>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-left">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Selected Candidates</span>
+            <span className="text-2xl font-black text-green-600 mt-1 block">{selectedApps}</span>
           </div>
         </div>
 
@@ -294,7 +336,9 @@ export default function CareersAdmin() {
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-3 text-xs font-bold text-slate-700 focus:outline-none focus:border-blue-500 cursor-pointer"
               >
                 <option value="All">All Roles</option>
-                {rolesInList.map((rl) => (
+                <option value="AI Conversations">AI Conversations</option>
+                <option value="Quality Checking">Quality Checking</option>
+                {rolesInList.filter(r => r !== "AI Conversations" && r !== "Quality Checking").map((rl) => (
                   <option key={rl} value={rl}>{rl}</option>
                 ))}
               </select>
@@ -444,10 +488,43 @@ export default function CareersAdmin() {
               <div className="bg-slate-50 border border-slate-150 rounded-2xl p-4">
                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider">Profile Details</p>
                 <p className="text-xs font-bold text-slate-800 mt-1">📍 Location: {selectedApp.currentLocation}</p>
-                <p className="text-xs font-bold text-slate-800 mt-0.5">🎓 Degree: {selectedApp.education}</p>
+                <p className="text-xs font-bold text-slate-800 mt-0.5">🎓 Highest Qualification: {selectedApp.education}</p>
                 <p className="text-xs font-bold text-slate-800">💼 Experience: {selectedApp.experience} Years</p>
               </div>
             </div>
+
+            {/* Optional Links */}
+            {(selectedApp.linkedIn || selectedApp.portfolio) && (
+              <div className="bg-slate-50 border border-slate-150 rounded-2xl p-4 space-y-2">
+                <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider">Candidate Links</p>
+                {selectedApp.linkedIn && (
+                  <p className="text-xs text-slate-850">
+                    🔗 <strong>LinkedIn:</strong>{" "}
+                    <a
+                      href={selectedApp.linkedIn}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline font-bold"
+                    >
+                      {selectedApp.linkedIn}
+                    </a>
+                  </p>
+                )}
+                {selectedApp.portfolio && (
+                  <p className="text-xs text-slate-850">
+                    🌐 <strong>Portfolio:</strong>{" "}
+                    <a
+                      href={selectedApp.portfolio}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline font-bold"
+                    >
+                      {selectedApp.portfolio}
+                    </a>
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* Cover Letter */}
             <div className="space-y-2">

@@ -13,6 +13,8 @@ export interface CandidateApplication {
   experience: number;
   resumeUrl: string; // File path or download link
   coverLetter?: string;
+  linkedIn?: string;
+  portfolio?: string;
   status: "New Application" | "Under Review" | "Shortlisted" | "Interview Scheduled" | "Selected" | "Rejected";
   appliedAt: string; // ISO date string
 }
