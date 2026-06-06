@@ -33,6 +33,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Required fields are missing." }, { status: 400 });
     }
 
+    // Enforce 2 MB max file size for resumes
+    const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
+    if (resumeFile.size > MAX_FILE_SIZE_BYTES) {
+      return NextResponse.json({ 
+        error: "Resume file size exceeds the 2 MB limit. Please upload a smaller file." 
+      }, { status: 400 });
+    }
+
+    // Only accept PDF files
+    const allowedTypes = ["application/pdf"];
+    if (!allowedTypes.includes(resumeFile.type) && !resumeFile.name.toLowerCase().endsWith(".pdf")) {
+      return NextResponse.json({ 
+        error: "Only PDF files are accepted for resume uploads." 
+      }, { status: 400 });
+    }
+
     let resumeUrl = "";
     
     const timestamp = Date.now();

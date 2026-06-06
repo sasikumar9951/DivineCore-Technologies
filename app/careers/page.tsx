@@ -155,7 +155,20 @@ export default function Careers() {
 
   const handleResumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setResume(e.target.files[0]);
+      const file = e.target.files[0];
+      const MAX_SIZE = 2 * 1024 * 1024; // 2 MB
+      if (!file.name.toLowerCase().endsWith(".pdf") && file.type !== "application/pdf") {
+        setErrorMsg("Only PDF files are accepted. Please upload a .pdf resume.");
+        e.target.value = "";
+        return;
+      }
+      if (file.size > MAX_SIZE) {
+        setErrorMsg(`Resume exceeds the 2 MB file size limit. Your file is ${(file.size / (1024 * 1024)).toFixed(2)} MB. Please compress or re-save the PDF.`);
+        e.target.value = "";
+        return;
+      }
+      setErrorMsg(null);
+      setResume(file);
     }
   };
 
@@ -192,6 +205,17 @@ export default function Careers() {
     }
     if (!fullName || !emailAddress || !mobileNumber || !currentLocation || !education || experience === "" || !resume) {
       setErrorMsg("Please fill in all required fields and upload your resume.");
+      return;
+    }
+
+    // Double-check file constraints before submitting
+    const MAX_SIZE = 2 * 1024 * 1024;
+    if (resume.size > MAX_SIZE) {
+      setErrorMsg(`Resume exceeds the 2 MB file size limit (${(resume.size / (1024 * 1024)).toFixed(2)} MB). Please compress your PDF.`);
+      return;
+    }
+    if (!resume.name.toLowerCase().endsWith(".pdf") && resume.type !== "application/pdf") {
+      setErrorMsg("Only PDF files are accepted for resume uploads.");
       return;
     }
 
@@ -801,15 +825,16 @@ export default function Careers() {
 
                     {/* Resume Upload */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Upload Resume (PDF/DOC/DOCX) *</label>
+                      <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Upload Resume (PDF Only) *</label>
                       <input 
                         type="file" 
                         required
-                        accept=".pdf,.doc,.docx"
+                        accept=".pdf,application/pdf"
                         onChange={handleResumeChange}
                         className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
                       />
-                      {resume && <p className="text-xs text-blue-600 font-bold">Selected: {resume.name}</p>}
+                      <p className="text-[10px] text-slate-400 font-medium">PDF only · Max file size: 2 MB</p>
+                      {resume && <p className="text-xs text-blue-600 font-bold">✓ {resume.name} ({(resume.size / (1024 * 1024)).toFixed(2)} MB)</p>}
                     </div>
 
                     {/* Cover Letter */}
