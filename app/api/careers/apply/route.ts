@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { saveApplication } from "@/lib/db";
+import { saveApplication, emailAlreadyApplied } from "@/lib/db";
 import { sendConfirmationEmail } from "@/lib/email";
 import { put } from "@vercel/blob";
 import fs from "fs";
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     const portfolio = (formData.get("portfolio") as string) || "";
     const resumeFile = formData.get("resume") as File;
 
-    if (!fullName || !emailAddress || !mobileNumber || !resumeFile || !applicationType || !role) {
+    if (!fullName || !emailAddress || !mobileNumber || !resumeFile || !applicationType || !role || !linkedIn) {
       return NextResponse.json({ error: "Required fields are missing." }, { status: 400 });
     }
 
@@ -47,6 +47,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ 
         error: "Only PDF files are accepted for resume uploads." 
       }, { status: 400 });
+    }
+
+    // Check for duplicate email — one application per email address
+    const isDuplicate = await emailAlreadyApplied(emailAddress);
+    if (isDuplicate) {
+      return NextResponse.json({
+        error: "An application with this email address already exists. Our recruitment team will review your profile and contact you if shortlisted. Thank you for your interest in DivineCore Technologies."
+      }, { status: 409 });
     }
 
     let resumeUrl = "";

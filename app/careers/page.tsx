@@ -203,7 +203,7 @@ export default function Careers() {
       setErrorMsg("Please select the position you are applying for.");
       return;
     }
-    if (!fullName || !emailAddress || !mobileNumber || !currentLocation || !education || experience === "" || !resume) {
+    if (!fullName || !emailAddress || !mobileNumber || !currentLocation || !education || experience === "" || !resume || !linkedIn) {
       setErrorMsg("Please fill in all required fields and upload your resume.");
       return;
     }
@@ -217,6 +217,15 @@ export default function Careers() {
     if (!resume.name.toLowerCase().endsWith(".pdf") && resume.type !== "application/pdf") {
       setErrorMsg("Only PDF files are accepted for resume uploads.");
       return;
+    }
+
+    // Client-side quick duplicate check
+    if (typeof window !== "undefined") {
+      const previouslyAppliedEmail = localStorage.getItem("dct_applied_email");
+      if (previouslyAppliedEmail && previouslyAppliedEmail === emailAddress.toLowerCase().trim()) {
+        setErrorMsg("You have already submitted an application using this email address.");
+        return;
+      }
     }
 
     setIsSubmitting(true);
@@ -248,6 +257,11 @@ export default function Careers() {
           ? `${data.error} Details: ${data.details}` 
           : (data.error || "Something went wrong during submission.");
         throw new Error(msg);
+      }
+
+      // Store in localStorage to prevent double submission
+      if (typeof window !== "undefined") {
+        localStorage.setItem("dct_applied_email", emailAddress.toLowerCase().trim());
       }
 
       setApplicationId(data.applicationId);
@@ -796,13 +810,14 @@ export default function Careers() {
                       </div>
                     </div>
 
-                    {/* Optional LinkedIn & Portfolio */}
+                    {/* Required LinkedIn & Optional Portfolio */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* LinkedIn */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">LinkedIn Profile (Optional)</label>
+                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">LinkedIn Profile *</label>
                         <input 
                           type="url" 
+                          required
                           placeholder="e.g. https://linkedin.com/in/username"
                           value={linkedIn}
                           onChange={(e) => setLinkedIn(e.target.value)}

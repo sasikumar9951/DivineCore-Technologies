@@ -14,7 +14,7 @@ export interface CandidateApplication {
   experience: number;
   resumeUrl: string; // File path or download link
   coverLetter?: string;
-  linkedIn?: string;
+  linkedIn: string;
   portfolio?: string;
   status: "New Application" | "Under Review" | "Shortlisted" | "Interview Scheduled" | "Selected" | "Rejected";
   appliedAt: string; // ISO date string
@@ -114,6 +114,24 @@ export async function getApplications(): Promise<CandidateApplication[]> {
     console.error("Error reading applications database:", error);
     return [];
   }
+}
+
+// Check if an email address has already submitted an application
+export async function emailAlreadyApplied(email: string): Promise<boolean> {
+  if (isVercel) {
+    const dbUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL || "";
+    if (!dbUrl) return false;
+    const sql = neon(dbUrl);
+    await initializeDB();
+    const rows = await sql`SELECT 1 FROM applications WHERE LOWER(email_address) = LOWER(${email}) LIMIT 1`;
+    return rows.length > 0;
+  }
+
+  // Local fallback
+  const applications = await getApplications();
+  return applications.some(
+    (app) => app.emailAddress.toLowerCase() === email.toLowerCase()
+  );
 }
 
 export async function saveApplication(appData: Omit<CandidateApplication, "id" | "status" | "appliedAt">): Promise<CandidateApplication> {
@@ -216,3 +234,39 @@ export async function updateApplicationStatus(
 
   return applications[index];
 }
+
+export async function deleteApplication(id: string): Promise<CandidateApplication | null> {
+  if (isVercel) {
+    const dbUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL || "";
+    if (!dbUrl) {
+      throw new Error("DATABASE_URL is missing.");
+    }
+    const sql = neon(dbUrl);
+    await initializeDB();
+
+    // Retrieve first to return it
+    const findRows = await sql`SELECT * FROM applications WHERE id = ${id}`;
+    if (findRows.length === 0) {
+      return null;
+    }
+
+    await sql`DELETE FROM applications WHERE id = ${id}`;
+    return mapRowToApplication(findRows[0]);
+  }
+
+  // Local filesystem persistence
+  const applications = await getApplications();
+  const index = applications.findIndex((app) => app.id === id);
+
+  if (index === -1) {
+    return null;
+  }
+
+  const deletedApp = applications[index];
+  applications.splice(index, 1);
+  initializeDB();
+  await fs.promises.writeFile(DB_FILE, JSON.stringify(applications, null, 2), "utf8");
+
+  return deletedApp;
+}
+

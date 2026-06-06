@@ -15,7 +15,7 @@ interface CandidateApplication {
   experience: number;
   resumeUrl: string;
   coverLetter?: string;
-  linkedIn?: string;
+  linkedIn: string;
   portfolio?: string;
   status: "New Application" | "Under Review" | "Shortlisted" | "Interview Scheduled" | "Selected" | "Rejected";
   appliedAt: string;
@@ -103,6 +103,36 @@ export default function CareersAdmin() {
     setIsAuthorized(false);
     setApplications([]);
     setPasscode("");
+  };
+
+  const handleDeleteApplication = async (id: string) => {
+    if (!window.confirm("Are you sure you want to permanently delete this application and its resume? This action cannot be undone.")) {
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/careers/admin?id=${encodeURIComponent(id)}`, {
+        method: "DELETE",
+        headers: {
+          "x-admin-passcode": passcode,
+        },
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "Failed to delete candidate application.");
+      }
+
+      // Remove from local list state
+      setApplications((prev) => prev.filter((app) => app.id !== id));
+      
+      // Close details modal if the deleted app was open
+      if (selectedApp && selectedApp.id === id) {
+        setSelectedApp(null);
+      }
+    } catch (err: any) {
+      alert(err.message || "Failed to delete application.");
+    }
   };
 
   const handleStatusChange = async (id: string, newStatus: CandidateApplication["status"]) => {
@@ -486,14 +516,25 @@ export default function CareersAdmin() {
                           </a>
                         </td>
 
-                        {/* Actions (View Profile) */}
+                        {/* Actions (View Profile & Delete) */}
                         <td className="p-4 pr-6 text-right">
-                          <button
-                            onClick={() => setSelectedApp(app)}
-                            className="px-4 py-2 border border-slate-200 hover:border-blue-400 hover:bg-blue-50/20 text-slate-600 hover:text-blue-700 text-xs font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer"
-                          >
-                            Details
-                          </button>
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              onClick={() => setSelectedApp(app)}
+                              className="px-4 py-2 border border-slate-200 hover:border-blue-400 hover:bg-blue-50/20 text-slate-650 hover:text-blue-700 text-xs font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer"
+                            >
+                              Details
+                            </button>
+                            <button
+                              onClick={() => handleDeleteApplication(app.id)}
+                              className="p-2 border border-red-100 hover:border-red-400 hover:bg-red-50 text-red-500 hover:text-red-700 rounded-xl transition-all cursor-pointer"
+                              title="Delete Application"
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                              </svg>
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     );
@@ -598,6 +639,12 @@ export default function CareersAdmin() {
               </div>
 
               <div className="flex gap-2 w-full sm:w-auto justify-end">
+                <button
+                  onClick={() => handleDeleteApplication(selectedApp.id)}
+                  className="px-5 py-3 border border-red-200 hover:border-red-500 hover:bg-red-50 text-red-650 hover:text-red-750 text-xs font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer"
+                >
+                  Delete Application
+                </button>
                 <a
                   href={`/api/careers/resume?url=${encodeURIComponent(selectedApp.resumeUrl)}&passcode=${encodeURIComponent(passcode)}`}
                   download
