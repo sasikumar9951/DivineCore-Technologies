@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       try {
         // Upload resume directly to Vercel Blob cloud bucket
         const blob = await put(safeFilename, resumeFile, {
-          access: "public",
+          access: "private",
         });
         resumeUrl = blob.url;
       } catch (blobErr: any) {

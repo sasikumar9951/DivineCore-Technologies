@@ -475,7 +475,7 @@ export default function CareersAdmin() {
                         {/* Resume Link */}
                         <td className="p-4 text-left">
                           <a
-                            href={app.resumeUrl}
+                            href={`/api/careers/resume?url=${encodeURIComponent(app.resumeUrl)}&passcode=${encodeURIComponent(passcode)}`}
                             download
                             target="_blank"
                             rel="noopener noreferrer"
@@ -599,7 +599,7 @@ export default function CareersAdmin() {
 
               <div className="flex gap-2 w-full sm:w-auto justify-end">
                 <a
-                  href={selectedApp.resumeUrl}
+                  href={`/api/careers/resume?url=${encodeURIComponent(selectedApp.resumeUrl)}&passcode=${encodeURIComponent(passcode)}`}
                   download
                   target="_blank"
                   rel="noopener noreferrer"
