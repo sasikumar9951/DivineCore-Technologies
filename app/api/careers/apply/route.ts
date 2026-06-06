@@ -80,9 +80,13 @@ export async function POST(req: NextRequest) {
       message: "Thank you for applying to DivineCore Technologies. Your application has been submitted successfully. Our recruitment team will review your profile and contact shortlisted candidates.",
       applicationId: savedApp.id,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Application POST error:", error);
-    return NextResponse.json({ error: "Internal server error occurred." }, { status: 500 });
+    return NextResponse.json({ 
+      error: "Internal server error occurred.", 
+      details: error?.message || String(error),
+      stack: error?.stack 
+    }, { status: 500 });
   }
 }
 export const dynamic = "force-dynamic";
