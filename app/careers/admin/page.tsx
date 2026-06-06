@@ -34,6 +34,7 @@ export default function CareersAdmin() {
   const [passcode, setPasscode] = useState("");
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
+  const [showPasscode, setShowPasscode] = useState(false);
 
   const [applications, setApplications] = useState<CandidateApplication[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -160,40 +161,77 @@ export default function CareersAdmin() {
 
   if (!isAuthorized) {
     return (
-      <div className="bg-slate-50 min-h-screen flex items-center justify-center font-sans p-6 text-slate-900">
-        <div className="max-w-md w-full bg-white rounded-3xl border border-slate-200 p-8 md:p-10 shadow-sm text-center space-y-6">
-          <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mx-auto font-black shadow-inner">
-            🔑
-          </div>
+      <div className="relative bg-slate-950 min-h-screen flex items-center justify-center font-sans p-6 text-slate-100 overflow-hidden">
+        {/* Glow ambient effects */}
+        <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" />
+        <div className="absolute top-[40%] left-[30%] w-[350px] h-[350px] rounded-full bg-blue-500/5 blur-[100px] pointer-events-none" />
+
+        <div className="max-w-md w-full backdrop-blur-xl bg-slate-900/40 border border-slate-850 rounded-3xl p-8 md:p-10 shadow-[0_0_50px_-12px_rgba(99,102,241,0.25)] text-center space-y-8 z-10 relative">
           
-          <div className="space-y-1">
-            <h1 className="text-2xl font-black text-slate-900">Recruitment Dashboard</h1>
-            <p className="text-xs text-slate-500">DivineCore Technologies Administrative Portal</p>
+          {/* Header Brand */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-widest mx-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+              Secure Workspace
+            </div>
+            
+            <div className="space-y-2">
+              <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-indigo-100 to-slate-200 bg-clip-text text-transparent">
+                Admin Workspace
+              </h1>
+              <p className="text-xs text-slate-400 font-medium leading-relaxed">
+                Enter your administrative passcode to access recruitment analytics and applications.
+              </p>
+            </div>
           </div>
 
+          {/* Error message */}
           {loginError && (
-            <div className="bg-red-50 border border-red-200 text-red-700 text-xs font-semibold p-4 rounded-xl text-left">
-              {loginError}
+            <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold p-4 rounded-xl text-left flex items-start gap-2.5 animate-pulse">
+              <span className="text-sm">⚠️</span>
+              <span>{loginError}</span>
             </div>
           )}
 
-          <form onSubmit={handleLoginSubmit} className="space-y-4 text-left">
-            <div className="space-y-1.5">
-              <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Admin Passcode</label>
-              <input
-                type="password"
-                required
-                placeholder="Enter password..."
-                value={passcode}
-                onChange={(e) => setPasscode(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-              />
+          {/* Form */}
+          <form onSubmit={handleLoginSubmit} className="space-y-5 text-left">
+            <div className="space-y-2">
+              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">
+                Admin Passcode
+              </label>
+              <div className="relative">
+                <input
+                  type={showPasscode ? "text" : "password"}
+                  required
+                  placeholder="••••••••••••"
+                  value={passcode}
+                  onChange={(e) => setPasscode(e.target.value)}
+                  className="w-full bg-slate-950/70 border border-slate-800 rounded-xl pl-4 pr-11 py-3.5 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all placeholder:text-slate-700 font-mono tracking-widest"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPasscode(!showPasscode)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
+                >
+                  {showPasscode ? (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.644C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider py-4 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-black text-xs uppercase tracking-wider py-4 rounded-xl transition-all hover:shadow-[0_0_25px_0_rgba(99,102,241,0.4)] disabled:opacity-50 active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <>
@@ -201,14 +239,24 @@ export default function CareersAdmin() {
                   Authenticating...
                 </>
               ) : (
-                "Unlock Dashboard"
+                <>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                  </svg>
+                  Unlock Dashboard
+                </>
               )}
             </button>
           </form>
 
-          <div className="pt-2">
-            <Link href="/careers" className="text-xs text-slate-500 hover:underline">
-              ← Return to Careers Page
+          {/* Footer Back Link */}
+          <div className="pt-4 border-t border-slate-800/60">
+            <Link 
+              href="/careers" 
+              className="group text-xs text-slate-500 hover:text-indigo-400 transition-colors inline-flex items-center gap-1.5 font-bold"
+            >
+              <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
+              Return to Careers Portal
             </Link>
           </div>
         </div>
