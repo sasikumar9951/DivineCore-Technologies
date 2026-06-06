@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveApplication } from "@/lib/db";
 import { sendConfirmationEmail } from "@/lib/email";
+import { put } from "@vercel/blob";
 import fs from "fs";
 import path from "path";
+
+// Check if we are running on Vercel (Cloud environment configured)
+const isVercel = 
+  typeof process.env.BLOB_READ_WRITE_TOKEN !== "undefined" || 
+  typeof process.env.DATABASE_URL !== "undefined" || 
+  typeof process.env.VERCEL !== "undefined";
 
 export async function POST(req: NextRequest) {
   try {
@@ -26,27 +33,45 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Required fields are missing." }, { status: 400 });
     }
 
-    // Ensure upload directory exists
-    const uploadsDir = path.join(process.cwd(), "public", "uploads", "resumes");
-    if (!fs.existsSync(uploadsDir)) {
-      fs.mkdirSync(uploadsDir, { recursive: true });
-    }
-
-    // Create a safe, unique filename
+    let resumeUrl = "";
+    
     const timestamp = Date.now();
     const cleanName = fullName.replace(/[^a-zA-Z0-9]/g, "_").toLowerCase();
     const originalExtension = path.extname(resumeFile.name) || ".pdf";
     const safeFilename = `resume_${cleanName}_${timestamp}${originalExtension}`;
-    const filePath = path.join(uploadsDir, safeFilename);
 
-    // Save file buffer
-    const arrayBuffer = await resumeFile.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    await fs.promises.writeFile(filePath, buffer);
+    if (isVercel) {
+      try {
+        // Upload resume directly to Vercel Blob cloud bucket
+        const blob = await put(safeFilename, resumeFile, {
+          access: "public",
+        });
+        resumeUrl = blob.url;
+      } catch (blobErr: any) {
+        console.error("Vercel Blob upload failed:", blobErr);
+        return NextResponse.json({ 
+          error: "Resume cloud upload failed. Please try again.",
+          details: blobErr.message || String(blobErr)
+        }, { status: 500 });
+      }
+    } else {
+      // Ensure local upload directory exists (Localhost development)
+      const uploadsDir = path.join(process.cwd(), "public", "uploads", "resumes");
+      if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+      }
 
-    const resumeUrl = `/uploads/resumes/${safeFilename}`;
+      const filePath = path.join(uploadsDir, safeFilename);
 
-    // Store applicant in local JSON database
+      // Save file buffer
+      const arrayBuffer = await resumeFile.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+      await fs.promises.writeFile(filePath, buffer);
+
+      resumeUrl = `/uploads/resumes/${safeFilename}`;
+    }
+
+    // Store applicant in database (Vercel KV or local JSON file)
     const savedApp = await saveApplication({
       fullName,
       emailAddress,
@@ -89,5 +114,6 @@ export async function POST(req: NextRequest) {
     }, { status: 500 });
   }
 }
+
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
