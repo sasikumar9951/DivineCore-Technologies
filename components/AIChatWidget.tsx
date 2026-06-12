@@ -85,7 +85,7 @@ export default function AIChatWidget() {
       return "**Nivetha M** is our **Senior Python QA Engineer**. She specializes in automated Python test script frameworks (Selenium, Playwright), quality validation pipelines, and compliance verification.";
     }
     if (query.includes("address") || query.includes("location") || query.includes("office") || query.includes("where") || query.includes("headquarter") || query.includes("headquarters") || query.includes("salem")) {
-      return "Our corporate headquarters is located at:\n\n**No 5, 2nd Floor, Kandha Gounder Complex, Opp. Petrol Bunk, Meyyanur Main Road, Salem - 636004, Tamilnadu, India.**\n\nWe enforce strict physical security checkpoints and administrative guidelines to ensure maximum client data protection.";
+      return "Our corporate headquarters is located at:\n\n**1st Floor, No. 48, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007.**\n\nWe enforce strict physical security checkpoints and administrative guidelines to ensure maximum client data protection.";
     }
     if (query.includes("contact") || query.includes("email") || query.includes("phone") || query.includes("call") || query.includes("number") || query.includes("mail") || query.includes("phone number")) {
       return "You can connect with us directly:\n\n* **Email**: info@divinecoretech.in\n* **Phone**: +91 74486 09951 or +91 63690 81530\n\nWe would love to help you build or consult on your next enterprise application!";

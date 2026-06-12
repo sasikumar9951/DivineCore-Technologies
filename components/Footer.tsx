@@ -77,7 +77,7 @@ const Footer = () => {
               <li className="flex items-start gap-2 max-w-[250px]">
                 <span className="mt-0.5">📍</span>
                 <span>
-                  No 5, 2nd Floor, Kandha Gounder Complex, Opp. Petrol Bunk, Meyyanur Main Road, Salem - 636004
+                  1st Floor, No. 48, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007
                 </span>
               </li>
             </ul>

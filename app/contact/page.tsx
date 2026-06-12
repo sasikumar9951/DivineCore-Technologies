@@ -137,7 +137,7 @@ export default function Contact() {
                   icon: "📞" 
                 },
                 { label: "Email", value: <a href="mailto:info@divinecoretech.in" className="hover:text-gold-primary transition-colors">info@divinecoretech.in</a>, icon: "✉️" },
-                { label: "Address", value: "No 5, 2nd Floor, Kandha Gounder Complex, Opp. Petrol Bunk, Meyyanur Main Road, Salem - 636004, Tamilnadu, India", icon: "📍" }
+                { label: "Address", value: "1st Floor, No. 48, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007", icon: "📍" }
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-start group">
                   <div className="w-12 h-12 rounded-xl bg-gold-primary/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
