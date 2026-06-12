@@ -77,7 +77,7 @@ const Footer = () => {
               <li className="flex items-start gap-2 max-w-[250px]">
                 <span className="mt-0.5">📍</span>
                 <span>
-                  1st Floor, No. 48, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007
+                  No. 48, 1st Floor, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007
                 </span>
               </li>
             </ul>

@@ -97,7 +97,7 @@ export default function PrivacyPolicy() {
               <div className="space-y-2">
                 <p className="text-gold-muted text-xs uppercase tracking-wider font-bold">Salem Headquarters</p>
                 <p className="text-black/60 font-bold leading-relaxed max-w-xs">
-                  1st Floor, No. 48, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007
+                  No. 48, 1st Floor, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007
                 </p>
               </div>
             </div>
