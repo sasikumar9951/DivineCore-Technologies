@@ -12,6 +12,15 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "UK Survey Voice Process",
+      category: "Voice Center & BPO",
+      tab: "BPO Services",
+      description: "An ongoing outbound/inbound survey voice process project conducted for the UK region, focusing on consumer insights, high-quality call standards, and strict compliance.",
+      tech: ["Voice Center", "Customer Surveys", "Quality Compliance"],
+      status: "Ongoing",
+      imageUrl: "/images/voice_center.png"
+    },
+    {
       title: "PDF to Word Conversion",
       category: "BPO & Data Services",
       tab: "BPO Services",

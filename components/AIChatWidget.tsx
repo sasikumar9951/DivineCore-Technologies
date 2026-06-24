@@ -61,7 +61,7 @@ export default function AIChatWidget() {
     const query = msg.toLowerCase();
     
     if (query.includes("founder") || query.includes("ceo") || query.includes("sasikumar")) {
-      return "DivineCore Technologies was founded in **2024** by **Sasikumar S**, who serves as the Founder & CEO. He is a visionary leader dedicated to technical integrity, premium software design, and high-performance digital architectures.";
+      return "DivineCore Technologies was founded in **2025** by **Sasikumar S**, who serves as the Founder & CEO. He is a visionary leader dedicated to technical integrity, premium software design, and high-performance digital architectures.";
     }
     if (query.includes("service") || query.includes("what do you do") || query.includes("what you offer") || query.includes("capabilities") || query.includes("offerings")) {
       return "We offer a suite of high-end digital services:\n\n* **Custom Software & Web Development** (Next.js, Node.js, Python, React)\n* **Mobile App Development** (High-performance iOS & Android apps)\n* **Cloud Solutions & DevOps** (AWS, Azure pipelines)\n* **Cybersecurity & Security Auditing** (Vulnerability assessments)\n* **BPO & High-Precision Data Entry** (Digitization, QA operations)\n\nWould you like to learn more about a specific service?";
