@@ -47,13 +47,13 @@ const Navbar = () => {
             <div className="w-12 h-12 md:w-16 md:h-16 relative">
               <TransparentImage 
                 src="/images/logo.png" 
-                alt="DivineCore Logo" 
+                alt="DivineCore Technologies PVT LTD Logo" 
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" 
               />
             </div>
             <div className="flex flex-col leading-tight">
               <span className="text-xl md:text-2xl font-black tracking-[-0.02em] text-white">DivineCore</span>
-              <span className="text-[8px] md:text-[9px] font-black text-gold-primary tracking-[0.4em] uppercase opacity-80">Technologies</span>
+              <span className="text-[8px] md:text-[9px] font-black text-gold-primary tracking-[0.4em] uppercase opacity-80">Technologies PVT LTD</span>
             </div>
           </Link>
 

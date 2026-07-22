@@ -12,11 +12,11 @@ const FAQ = () => {
 
   const faqs: FAQItem[] = [
     {
-      question: "What services does DivineCore Technologies offer?",
+      question: "What services does DivineCore Technologies PVT LTD offer?",
       answer: "We offer a wide range of IT services including Custom Software Development, Cloud Infrastructure management, Web & Mobile App development, Cybersecurity, and Strategic Technology Consulting."
     },
     {
-      question: "Where is DivineCore Technologies located?",
+      question: "Where is DivineCore Technologies PVT LTD located?",
       answer: "Our primary office is located in Salem, Tamilnadu, India. However, we serve clients globally and offer flexible engagement models including remote collaboration."
     },
     {
@@ -29,7 +29,7 @@ const FAQ = () => {
     },
     {
       question: "How can I get a quote for my project?",
-      answer: "You can reach out to us via our Contact page or email us at info@divinecoretech.in. Our team will schedule a discovery call to understand your requirements and provide a detailed proposal."
+      answer: "You can reach out to us via our Contact page or email us at info@DIVINECOREtech.in. Our team will schedule a discovery call to understand your requirements and provide a detailed proposal."
     }
   ];
 

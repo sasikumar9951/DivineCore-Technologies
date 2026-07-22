@@ -20,7 +20,7 @@ export async function sendEmail(formData: FormData) {
 
   try {
     await transporter.sendMail({
-      from: `"DivineCore Website" <info@divinecoretech.in>`,
+      from: `"DivineCore Technologies PVT LTD" <info@divinecoretech.in>`,
       to: "info@divinecoretech.in",
       replyTo: email as string,
       subject: `New Contact Form: ${subject}`,

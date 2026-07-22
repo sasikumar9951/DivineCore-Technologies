@@ -84,7 +84,7 @@ const Integrations = () => {
               <div className="w-24 h-24 bg-white rounded-2xl shadow-[0_15px_40px_rgba(12,35,64,0.12)] flex items-center justify-center border border-white relative group cursor-pointer hover:scale-105 transition-transform duration-300">
                 <div className="absolute inset-0 bg-blue-100/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 {/* Company Logo */}
-                <img src="/images/logo.png" alt="DivineCore Technologies" className="w-16 h-16 object-contain" />
+                <img src="/images/logo.png" alt="DivineCore Technologies PVT LTD" className="w-16 h-16 object-contain" />
               </div>
             </div>
 

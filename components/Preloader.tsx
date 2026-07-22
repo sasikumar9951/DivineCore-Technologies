@@ -55,7 +55,7 @@ const Preloader = () => {
             <div className="w-[75%] h-[75%] relative z-10">
               <TransparentImage 
                 src="/images/logo.png" 
-                alt="DivineCore Logo" 
+                alt="DivineCore Technologies PVT LTD Logo" 
                 className="w-full h-full object-contain"
                 threshold={240}
               />
@@ -74,7 +74,7 @@ const Preloader = () => {
         <div className="text-center space-y-6">
           <div className="space-y-2">
             <h2 className="text-white font-black text-2xl tracking-[0.4em] uppercase opacity-90 animate-[fade-in_1s_ease-out]">
-              DivineCore
+              DivineCore Technologies PVT LTD
             </h2>
             <div className="flex items-center justify-center gap-3">
               <div className="h-[1px] w-8 bg-gold-primary/30" />

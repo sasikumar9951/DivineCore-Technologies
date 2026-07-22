@@ -32,9 +32,9 @@ export default function About() {
     <div className="bg-white">
       <Hero
         title="Engineering Tomorrow's Excellence Today"
-        subtitle="Founded in 2025, DivineCore Technologies is a premier global software development and digital transformation agency dedicated to creating high-impact technological solutions."
+        subtitle="Founded in 2025, DivineCore Technologies PVT LTD is a premier global software development and digital transformation agency dedicated to creating high-impact technological solutions."
         image={
-          <img src="/images/about_hero.png" alt="About DivineCore" className="rounded-3xl shadow-2xl border border-white/10" />
+          <img src="/images/about_hero.png" alt="About DIVINECORE" className="rounded-3xl shadow-2xl border border-white/10" />
         }
       >
         <div className="flex gap-2 text-sm text-white/60">
@@ -49,7 +49,7 @@ export default function About() {
           <span className="section-tag">OUR IDENTITY</span>
           <h2 className="text-4xl md:text-5xl font-black text-deep-black mb-6">Empowering the Future Through Code</h2>
           <p className="text-black/60 leading-relaxed text-lg">
-            DivineCore Technologies is a forward-thinking IT solutions company dedicated to helping businesses navigate the digital world. With a strong focus on innovation, quality and customer success, we deliver solutions that drive impact and create lasting value.
+            DivineCore Technologies PVT LTD is a forward-thinking IT solutions company dedicated to helping businesses navigate the digital world. With a strong focus on innovation, quality and customer success, we deliver solutions that drive impact and create lasting value.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function About() {
             <div className="absolute inset-0 gold-gradient opacity-0 group-hover:opacity-10 transition-opacity z-10" />
             <img 
               src="/images/founder.png" 
-              alt="Sasikumar S - Founder of DivineCore Technologies" 
+              alt="Sasikumar S - Founder of DivineCore Technologies PVT LTD" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </div>
@@ -102,10 +102,10 @@ export default function About() {
             </h2>
             <div className="space-y-2">
               <h4 className="text-2xl font-black text-deep-black">Sasikumar S</h4>
-              <p className="text-gold-muted font-bold text-sm uppercase tracking-widest">Founder & CEO, DivineCore Technologies</p>
+              <p className="text-gold-muted font-bold text-sm uppercase tracking-widest">Founder & CEO, DivineCore Technologies PVT LTD</p>
             </div>
             <p className="text-black/60 leading-relaxed text-lg max-w-2xl">
-              At DivineCore, our mission is driven by a simple belief: excellence is not an act, but a habit. We've built this company on the foundation of technical integrity and a relentless pursuit of perfection in every line of code we write.
+              At DIVINECORE, our mission is driven by a simple belief: excellence is not an act, but a habit. We've built this company on the foundation of technical integrity and a relentless pursuit of perfection in every line of code we write.
             </p>
           </div>
         </div>

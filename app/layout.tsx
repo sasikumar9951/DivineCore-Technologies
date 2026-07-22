@@ -11,7 +11,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "DivineCore Technologies | Innovating Today. Transforming Tomorrow.",
+  title: "DivineCore Technologies PVT LTD | Innovating Today. Transforming Tomorrow.",
   description: "A high-end tech company specializing in Software Development, Cloud Solutions, Cybersecurity, and IT Consulting.",
 };
 

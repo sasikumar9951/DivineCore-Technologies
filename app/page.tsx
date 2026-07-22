@@ -113,7 +113,7 @@ export default function Home() {
               <span className="section-tag">WHO WE ARE</span>
               <h2 className="text-4xl md:text-5xl font-black text-deep-black mb-8">Empowering Businesses Through Innovation</h2>
               <p className="text-black/60 text-lg leading-relaxed mb-8">
-                Based in Salem, Tamilnadu, DivineCore Technologies is a premier IT consulting and software development firm. We specialize in building scalable, secure, and high-performance digital solutions for enterprises worldwide.
+                Based in Salem, Tamilnadu, DivineCore Technologies PVT LTD is a premier IT consulting and software development firm. We specialize in building scalable, secure, and high-performance digital solutions for enterprises worldwide.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
@@ -132,7 +132,7 @@ export default function Home() {
             <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src="/images/who_we_are.png" 
-                alt="DivineCore Technologies Team" 
+                alt="DivineCore Technologies PVT LTD Team" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -233,7 +233,7 @@ export default function Home() {
 
         <Section className="bg-[#0a0a0a] text-white">
           <div className="text-center mb-16">
-            <span className="section-tag border-gold-primary/30 text-gold-primary">WHY DIVINECORE TECHNOLOGIES</span>
+            <span className="section-tag border-gold-primary/30 text-gold-primary">WHY DivineCore Technologies PVT LTD</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mt-6">
               Built Different, <span className="gold-text-gradient">Delivered Better</span>
             </h2>

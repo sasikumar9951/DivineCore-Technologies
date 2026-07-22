@@ -12,12 +12,12 @@ const Footer = () => {
               <div className="w-16 h-16 relative">
                 <TransparentImage 
                   src="/images/logo.png" 
-                  alt="DivineCore Logo" 
+                  alt="DIVINECORE Logo" 
                   className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
                 />
               </div>
               <div className="flex flex-col leading-tight text-left">
-                <span className="text-xl font-black tracking-tight text-white">DivineCore</span>
+                <span className="text-xl font-black tracking-tight text-white">DIVINECORE</span>
                 <span className="text-[10px] font-bold text-gold-primary tracking-[0.2em] uppercase">Technologies</span>
               </div>
             </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
                   <a href="tel:+916369081530" className="hover:text-gold-primary transition-colors">+91 63690 81530</a>
                 </div>
               </li>
-              <li className="flex items-center gap-2"><span>✉️</span> <a href="mailto:info@divinecoretech.in" className="hover:text-gold-primary transition-colors">info@divinecoretech.in</a></li>
+              <li className="flex items-center gap-2"><span>✉️</span> <a href="mailto:info@DIVINECOREtech.in" className="hover:text-gold-primary transition-colors">info@DIVINECOREtech.in</a></li>
               <li className="flex items-start gap-2 max-w-[250px]">
                 <span className="mt-0.5">📍</span>
                 <span>
@@ -85,7 +85,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-white/20 uppercase tracking-widest">
-          <p>© 2026 DivineCore Technologies. All rights reserved.</p>
+          <p>© 2026 DivineCore Technologies PVT LTD. All rights reserved.</p>
           <div className="flex gap-8">
             <Link href="/privacy" className="hover:text-gold-primary transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-primary transition-colors">Terms & Conditions</Link>

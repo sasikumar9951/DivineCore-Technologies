@@ -15,66 +15,33 @@ interface JobOpening {
   responsibilities: string[];
   requirements: string[];
   benefits?: string[];
+  interviewDate?: string;
+  status: "Open" | "Closed";
 }
 
-const FULL_TIME_OPENINGS: JobOpening[] = [
-  {
-    title: "AI Conversations Associate",
-    type: "Full-Time",
-    salaryOrStipend: "₹20,000 - ₹30,000 per month",
-    location: "Salem, Tamil Nadu",
-    mode: "Work From Office",
-    responsibilities: [
-      "Interact with AI systems and voice assistants",
-      "Evaluate conversation quality",
-      "Review AI responses and outputs",
-      "Report issues and improvement suggestions",
-    ],
-    requirements: [
-      "Good communication skills",
-      "Basic English proficiency",
-      "Interest in AI and technology",
-      "Freshers can apply",
-    ],
-  },
-  {
-    title: "Quality Checking Associate",
-    type: "Full-Time",
-    salaryOrStipend: "₹15,000 - ₹30,000 per month",
-    location: "Salem, Tamil Nadu",
-    mode: "Work From Office",
-    responsibilities: [
-      "Perform quality checking tasks",
-      "Verify data accuracy",
-      "Conduct mapping reviews",
-      "Maintain quality standards",
-    ],
-    requirements: [
-      "Basic computer knowledge",
-      "Attention to detail",
-      "Fast learning ability",
-      "Freshers can apply",
-    ],
-  },
-];
+const FULL_TIME_OPENINGS: JobOpening[] = [];
 
 const INTERNSHIPS: JobOpening[] = [
   {
-    title: "AI Conversations Intern",
+    title: "WordPress Developer Intern",
     type: "Internship",
-    salaryOrStipend: "₹10,000 per month",
+    salaryOrStipend: "Performance-Based",
     location: "Salem, Tamil Nadu",
     mode: "Work From Office",
     duration: "3 Months",
+    interviewDate: "15th July 2026",
+    status: "Open",
     responsibilities: [
-      "Interact with AI models and log conversation flows",
-      "Provide feedback on voice assistant interactions",
-      "Validate output patterns for accuracy",
+      "Design, develop, and maintain WordPress websites",
+      "Customize WordPress themes and plugins",
+      "Ensure website responsiveness, performance, and security",
+      "Collaborate with design and development teams on layouts",
     ],
     requirements: [
-      "Eagerness to learn AI concepts",
-      "Decent communication skills",
-      "Adaptable team player",
+      "Basic knowledge of HTML, CSS, JavaScript, and PHP",
+      "Familiarity with WordPress dashboard and theme page builders (e.g., Elementor)",
+      "Strong problem-solving skills and eagerness to learn",
+      "Freshers can apply",
     ],
     benefits: [
       "Internship Certificate",
@@ -82,33 +49,10 @@ const INTERNSHIPS: JobOpening[] = [
       "Performance-based full-time opportunity",
     ],
   },
-  {
-    title: "Quality Checking Intern",
-    type: "Internship",
-    salaryOrStipend: "₹10,000 per month",
-    location: "Salem, Tamil Nadu",
-    mode: "Work From Office",
-    duration: "3 Months",
-    responsibilities: [
-      "Support data validation audits",
-      "Inspect mapping lists for errors",
-      "Report compliance discrepancies",
-    ],
-    requirements: [
-      "Good eye for spotting details",
-      "Basic Microsoft Office capabilities",
-      "Positive attitude and coachable",
-    ],
-    benefits: [
-      "Internship Certificate",
-      "Hands-on training",
-      "Performance-based full-time opportunity",
-    ],
-  },
 ];
 
-const FULL_TIME_ROLES = ["AI Conversations Associate", "Quality Checking Associate"];
-const INTERNSHIP_ROLES = ["AI Conversations Intern", "Quality Checking Intern"];
+const FULL_TIME_ROLES = ["General Application (Full-Time)"];
+const INTERNSHIP_ROLES = ["WordPress Developer Intern", "General Application (Internship)"];
 
 export default function Careers() {
   // Form State
@@ -280,37 +224,42 @@ export default function Careers() {
       : [];
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-900 font-sans">
+    <div className="bg-[#050505] min-h-screen text-white font-sans relative overflow-hidden">
+      {/* Glow ambient effects */}
+      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[20%] left-[-15%] w-[600px] h-[600px] rounded-full bg-violet-600/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
+
       <Hero
-        title="Join Our Team at DivineCore Technologies"
+        title="Join Our Team at DivineCore Technologies PVT LTD"
         subtitle="Build your career with a fast-growing technology company. We are looking for passionate individuals who are eager to learn, grow, and contribute to innovative projects."
         image={
-          <div className="w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center relative overflow-hidden select-none">
-            <div className="absolute top-[20%] right-[10%] w-[60%] h-[60%] bg-blue-400/10 blur-[90px] rounded-full pointer-events-none animate-pulse" />
+          <div className="w-full h-full bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 flex items-center justify-center relative overflow-hidden select-none border border-white/5">
+            <div className="absolute top-[20%] right-[10%] w-[60%] h-[60%] bg-gold-primary/10 blur-[90px] rounded-full pointer-events-none animate-pulse" />
             <div className="text-center space-y-4 z-10 p-6">
-              <span className="text-xs font-black tracking-[0.3em] text-blue-300 uppercase">CAREER OPPORTUNITIES</span>
+              <span className="text-xs font-black tracking-[0.3em] text-gold-primary uppercase">CAREER OPPORTUNITIES</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-white">Join the Core</h2>
-              <p className="text-xs text-blue-200/60 max-w-xs mx-auto">Explore technology, QA, and AI jobs at our Salem Hub</p>
+              <p className="text-xs text-white/50 max-w-xs mx-auto">Explore technology, QA, and AI jobs at our Salem Hub</p>
             </div>
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-[60px]" />
           </div>
         }
       >
         <div className="flex gap-2 text-sm text-white/70">
-          <Link href="/" className="hover:text-blue-400 transition-colors cursor-pointer">Home</Link>
+          <Link href="/" className="hover:text-gold-primary transition-colors cursor-pointer">Home</Link>
           <span>/</span>
-          <span className="text-blue-400 font-bold">Careers</span>
+          <span className="text-gold-primary font-bold">Careers</span>
         </div>
       </Hero>
 
       {/* Main Consolidated Roles & Form Grid */}
-      <Section className="bg-white py-20">
+      <Section className="bg-transparent py-20 border-t border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center mb-10">
-            <span className="text-blue-600 font-black text-xs uppercase tracking-widest bg-blue-50 px-4 py-2 rounded-full">CAREERS PORTAL</span>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4">Positions Explorer & Application</h2>
-            <p className="text-slate-500 mt-3 text-base max-w-2xl mx-auto">
+            <span className="text-gold-primary font-black text-xs uppercase tracking-widest bg-gold-primary/10 border border-gold-primary/20 px-4 py-2 rounded-full">CAREERS PORTAL</span>
+            <h2 className="text-3xl md:text-4xl font-black text-white mt-4">Positions Explorer & Application</h2>
+            <p className="text-white/50 mt-3 text-base max-w-2xl mx-auto">
               Explore available roles below and apply online. Our team will review your profile.
             </p>
           </div>
@@ -320,13 +269,13 @@ export default function Careers() {
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-primary/5 via-transparent to-transparent pointer-events-none" />
             <div className="relative z-10 space-y-2">
               <span className="text-gold-primary text-xs font-black tracking-[0.25em] uppercase bg-gold-primary/10 border border-gold-primary/20 px-3 py-1 rounded-full inline-block">
-                🚀 Join DivineCore Technologies
+                🚀 Join DivineCore Technologies PVT LTD
               </span>
               <h3 className="text-xl md:text-2xl font-black text-white">
-                Now Hiring for Full-Time & Internship Opportunities
+                Now Hiring: WordPress Developer Intern
               </h3>
               <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed font-light">
-                We are actively looking for freshers and experienced candidates who are eager to grow in AI Operations, Conversation Audits, and Quality Assurance at our Salem Hub.
+                We are actively looking for a WordPress Developer Intern who is passionate about creating high-quality web experiences and eager to grow their skills at our Salem Hub.
               </p>
             </div>
           </div>
@@ -338,158 +287,206 @@ export default function Careers() {
               
               {/* 1. Full-time Opportunities */}
               <div className="space-y-6">
-                <div className="border-b border-slate-200 pb-3 flex items-center gap-3">
+                <div className="border-b border-white/10 pb-3 flex items-center gap-3">
                   <span className="text-xl">💼</span>
-                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-wide">Full-Time Openings</h3>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide">Full-Time Openings</h3>
                 </div>
 
-                <div className="space-y-6">
-                  {FULL_TIME_OPENINGS.map((job) => (
-                    <div key={job.title} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 hover:border-blue-300 transition-all duration-300 relative text-left">
-                      <div className="flex justify-between items-start mb-4 gap-4">
-                        <div className="space-y-2">
-                          <h4 className="text-lg font-black text-slate-900">{job.title}</h4>
-                          <span className="inline-block text-xs font-black text-blue-700 bg-blue-50 border border-blue-100/50 px-3.5 py-1.5 rounded-full">
-                            💰 {job.salaryOrStipend}
-                          </span>
+                {FULL_TIME_OPENINGS.length > 0 ? (
+                  <div className="space-y-6">
+                    {FULL_TIME_OPENINGS.map((job) => (
+                      <div 
+                        key={job.title} 
+                        className={`backdrop-blur-md rounded-3xl p-6 transition-all duration-500 relative text-left border ${job.status === "Closed" ? "bg-[#0e0e0e]/40 border-white/[0.03] opacity-40 hover:opacity-50 saturate-50" : "bg-[#0e0e0e] border-white/10 hover:border-gold-primary/40 hover-float shadow-2xl"}`}
+                      >
+                        <div className="flex justify-between items-start mb-4 gap-4">
+                          <div className="space-y-2 text-left">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="text-lg font-black text-white">{job.title}</h4>
+                              {job.status === "Closed" && (
+                                <span className="text-[10px] font-bold text-white/40 bg-white/5 border border-white/10 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                                  Filled
+                                </span>
+                              )}
+                            </div>
+                            <span className="inline-block text-xs font-black text-gold-primary bg-gold-primary/10 border border-gold-primary/20 px-3.5 py-1.5 rounded-full">
+                              💰 {job.salaryOrStipend}
+                            </span>
+                          </div>
+                          <button 
+                            disabled={job.status === "Closed"}
+                            onClick={() => handleQuickApply(job)}
+                            className={`font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-md cursor-pointer shrink-0 font-bold ${job.status === "Closed" ? "bg-white/[0.02] border border-white/[0.04] text-white/20 cursor-not-allowed shadow-none" : "gold-gradient hover:opacity-90 text-deep-black shadow-gold-primary/10 hover:scale-[1.03]"}`}
+                          >
+                            {job.status === "Closed" ? "Filled" : "Apply Now"}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => handleQuickApply(job)}
-                          className="bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-md shadow-blue-500/10 cursor-pointer shrink-0 font-bold"
-                        >
-                          Apply Now
-                        </button>
-                      </div>
 
-                      {/* Job Metadata tags */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 border-y border-slate-200/60 py-3.5 my-4 text-xs font-bold text-slate-600">
-                        <div className="flex items-center gap-1.5">
-                          <span>📍</span>
-                          <span><strong>Location:</strong> Salem, TN</span>
+                        {/* Job Metadata tags */}
+                        <div className="flex flex-wrap items-center gap-y-2 gap-x-4 border-y border-white/5 py-3.5 my-4 text-xs font-bold text-white/60">
+                          <div className="flex items-center gap-1.5">
+                            <span>📍</span>
+                            <span><strong>Location:</strong> Salem, TN</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <span>🏢</span>
+                            <span><strong>Work Mode:</strong> WFO</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <span>🎓</span>
+                            <span>Freshers Can Apply</span>
+                          </div>
+                          {job.interviewDate && (
+                            <div className="flex items-center gap-1.5 text-amber-400 font-extrabold bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-lg w-fit">
+                              <span>📅</span>
+                              <span>Interview: {job.interviewDate}</span>
+                            </div>
+                          )}
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <span>🏢</span>
-                          <span><strong>Work Mode:</strong> WFO</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span>🎓</span>
-                          <span>Freshers Can Apply</span>
-                        </div>
-                      </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                        <div>
-                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-1.5">Responsibilities</p>
-                          <ul className="space-y-1 text-slate-600">
-                            {job.responsibilities.map((resp, i) => (
-                              <li key={i} className="flex items-start gap-1">
-                                <span className="text-blue-500">•</span>
-                                <span>{resp}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-1.5">Requirements</p>
-                          <ul className="space-y-1 text-slate-600">
-                            {job.requirements.map((req, i) => (
-                              <li key={i} className="flex items-start gap-1">
-                                <span className="text-blue-500">•</span>
-                                <span>{req}</span>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                          <div>
+                            <p className="text-[9px] font-black text-white/40 uppercase tracking-wider mb-1.5">Responsibilities</p>
+                            <ul className="space-y-1 text-white/70">
+                              {job.responsibilities.map((resp, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-gold-primary">•</span>
+                                  <span>{resp}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <p className="text-[9px] font-black text-white/40 uppercase tracking-wider mb-1.5">Requirements</p>
+                            <ul className="space-y-1 text-white/70">
+                              {job.requirements.map((req, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-gold-primary">•</span>
+                                  <span>{req}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-[#0e0e0e]/40 border border-dashed border-white/10 rounded-3xl p-8 text-center">
+                    <p className="text-sm font-bold text-white/70">No active full-time openings at the moment.</p>
+                    <p className="text-xs text-white/40 mt-2 font-medium">You can still submit a general application for future opportunities.</p>
+                  </div>
+                )}
               </div>
 
               {/* 2. Internship Opportunities */}
               <div className="space-y-6">
-                <div className="border-b border-slate-200 pb-3 flex items-center gap-3">
+                <div className="border-b border-white/10 pb-3 flex items-center gap-3">
                   <span className="text-xl">🎓</span>
-                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-wide">Internship Opportunities</h3>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide">Internship Opportunities</h3>
                 </div>
 
-                <div className="space-y-6">
-                  {INTERNSHIPS.map((job) => (
-                    <div key={job.title} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 hover:border-cyan-400 transition-all duration-300 relative text-left">
-                      <div className="flex justify-between items-start mb-4 gap-4">
-                        <div className="space-y-2">
-                          <h4 className="text-lg font-black text-slate-900">{job.title}</h4>
-                          <span className="inline-block text-xs font-black text-cyan-700 bg-cyan-50 border border-cyan-100/50 px-3.5 py-1.5 rounded-full">
-                            💰 Stipend: {job.salaryOrStipend} ({job.duration})
-                          </span>
+                {INTERNSHIPS.length > 0 ? (
+                  <div className="space-y-6">
+                    {INTERNSHIPS.map((job) => (
+                      <div 
+                        key={job.title} 
+                        className={`backdrop-blur-md rounded-3xl p-6 transition-all duration-300 relative text-left border ${job.status === "Closed" ? "bg-[#0e0e0e]/40 border-white/[0.03] opacity-40 hover:opacity-50 saturate-50" : "bg-[#0e0e0e] border-white/10 hover:border-cyan-400/40 hover-float shadow-2xl"}`}
+                      >
+                        <div className="flex justify-between items-start mb-4 gap-4">
+                          <div className="space-y-2 text-left">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="text-lg font-black text-white">{job.title}</h4>
+                              {job.status === "Closed" && (
+                                <span className="text-[10px] font-bold text-white/40 bg-white/5 border border-white/10 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                                  Filled
+                                </span>
+                              )}
+                            </div>
+                            <span className="inline-block text-xs font-black text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 px-3.5 py-1.5 rounded-full">
+                              💰 Stipend: {job.salaryOrStipend} ({job.duration})
+                            </span>
+                          </div>
+                          <button 
+                            disabled={job.status === "Closed"}
+                            onClick={() => handleQuickApply(job)}
+                            className={`font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-md cursor-pointer shrink-0 font-bold ${job.status === "Closed" ? "bg-white/[0.02] border border-white/[0.04] text-white/20 cursor-not-allowed shadow-none" : "bg-cyan-500 hover:bg-cyan-600 text-black hover:shadow-cyan-500/20 hover:scale-[1.03]"}`}
+                          >
+                            {job.status === "Closed" ? "Filled" : "Apply Now"}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => handleQuickApply(job)}
-                          className="bg-cyan-600 hover:bg-cyan-700 text-white font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-md shadow-cyan-500/10 cursor-pointer shrink-0 font-bold"
-                        >
-                          Apply Now
-                        </button>
-                      </div>
 
-                      {/* Job Metadata tags */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 border-y border-slate-200/60 py-3.5 my-4 text-xs font-bold text-slate-600">
-                        <div className="flex items-center gap-1.5">
-                          <span>📍</span>
-                          <span><strong>Location:</strong> Salem, TN</span>
+                        {/* Job Metadata tags */}
+                        <div className="flex flex-wrap items-center gap-y-2 gap-x-4 border-y border-white/5 py-3.5 my-4 text-xs font-bold text-white/60">
+                          <div className="flex items-center gap-1.5">
+                            <span>📍</span>
+                            <span><strong>Location:</strong> Salem, TN</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <span>🏢</span>
+                            <span><strong>Work Mode:</strong> WFO</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <span>🎓</span>
+                            <span>Freshers Can Apply</span>
+                          </div>
+                          {job.interviewDate && (
+                            <div className="flex items-center gap-1.5 text-amber-400 font-extrabold bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-lg w-fit">
+                              <span>📅</span>
+                              <span>Interview: {job.interviewDate}</span>
+                            </div>
+                          )}
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <span>🏢</span>
-                          <span><strong>Work Mode:</strong> WFO</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span>🎓</span>
-                          <span>Freshers Can Apply</span>
-                        </div>
-                      </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                        <div>
-                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-1.5">Responsibilities</p>
-                          <ul className="space-y-1 text-slate-600">
-                            {job.responsibilities.map((resp, i) => (
-                              <li key={i} className="flex items-start gap-1">
-                                <span className="text-cyan-500">•</span>
-                                <span>{resp}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-1.5">Benefits</p>
-                          <ul className="space-y-1 text-slate-600">
-                            {job.benefits?.map((benefit, i) => (
-                              <li key={i} className="flex items-start gap-1">
-                                <span className="text-cyan-500">✔</span>
-                                <span>{benefit}</span>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                          <div>
+                            <p className="text-[9px] font-black text-white/40 uppercase tracking-wider mb-1.5">Responsibilities</p>
+                            <ul className="space-y-1 text-white/70">
+                              {job.responsibilities.map((resp, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-cyan-400">•</span>
+                                  <span>{resp}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <p className="text-[9px] font-black text-white/40 uppercase tracking-wider mb-1.5">Benefits</p>
+                            <ul className="space-y-1 text-white/70">
+                              {job.benefits?.map((benefit, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-cyan-400">✔</span>
+                                  <span>{benefit}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-[#0e0e0e]/40 border border-dashed border-white/10 rounded-3xl p-8 text-center">
+                    <p className="text-sm font-bold text-white/70">No active internship openings at the moment.</p>
+                    <p className="text-xs text-white/40 mt-2 font-medium">You can still submit a general application for future opportunities.</p>
+                  </div>
+                )}
               </div>
 
               {/* 3. General Recruitment Terms */}
-              <div className="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 space-y-3">
-                <h4 className="text-xs font-black text-blue-800 uppercase tracking-wider">Recruitment Terms & Guidelines</h4>
-                <ul className="space-y-2 text-xs text-slate-600">
+              <div className="bg-white/[0.01] border border-white/[0.04] backdrop-blur-md rounded-3xl p-6 space-y-3">
+                <h4 className="text-xs font-black text-gold-primary uppercase tracking-wider">Recruitment Terms & Guidelines</h4>
+                <ul className="space-y-2 text-xs text-white/60">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500">📍</span>
+                    <span className="text-gold-primary">📍</span>
                     <span>All positions are strictly <strong>Work From Office</strong> located in Salem, Tamil Nadu.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500">🎓</span>
+                    <span className="text-gold-primary">🎓</span>
                     <span>Freshers are eligible to apply for all full-time and internship openings.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500">✉</span>
+                    <span className="text-gold-primary">✉</span>
                     <span>Confirm your email address: A confirmation email with your unique <strong>Application ID</strong> is dispatched immediately upon form submission.</span>
                   </li>
                 </ul>
@@ -507,7 +504,7 @@ export default function Careers() {
                 <div className="relative z-10 space-y-8 text-left">
                   <div className="space-y-4">
                     <span className="text-gold-primary text-xs font-black tracking-[0.2em] uppercase bg-gold-muted/10 border border-gold-primary/30 px-3.5 py-1.5 rounded-full inline-block">
-                      Join DivineCore
+                      Join DIVINECORE
                     </span>
                     <h3 className="text-3xl md:text-4xl font-black leading-tight text-white">
                       Ready to build the <span className="gold-text-gradient">future</span>?
@@ -567,25 +564,25 @@ export default function Careers() {
       </Section>
 
       {/* Support recruitment contact details */}
-      <Section className="bg-slate-50 py-16">
+      <Section className="bg-[#090909]/60 py-16 border-t border-white/5 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-xl font-black text-slate-900 mb-2">Need Recruitment Support?</h3>
-          <p className="text-slate-500 text-xs leading-relaxed mb-6">
+          <h3 className="text-xl font-black text-white mb-2">Need Recruitment Support?</h3>
+          <p className="text-white/50 text-xs leading-relaxed mb-6">
             If you encounter any issues during the resume submission process or want to inquire about other vacancies, reach out directly.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 text-left">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg font-black">✉</div>
+            <div className="bg-white/[0.02] border border-white/[0.05] hover:border-gold-primary/20 transition-all rounded-2xl p-4 flex items-center gap-4 text-left">
+              <div className="w-10 h-10 rounded-xl bg-gold-primary/10 text-gold-primary flex items-center justify-center text-lg font-black">✉</div>
               <div>
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-wider">Email Inquiry</p>
-                <a href="mailto:info@divinecoretech.in" className="text-xs font-black text-blue-600 hover:underline">info@divinecoretech.in</a>
+                <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">Email Inquiry</p>
+                <a href="mailto:info@DIVINECOREtech.in" className="text-xs font-black text-gold-primary hover:underline">info@DIVINECOREtech.in</a>
               </div>
             </div>
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 text-left">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg font-black">🌍</div>
+            <div className="bg-white/[0.02] border border-white/[0.05] hover:border-gold-primary/20 transition-all rounded-2xl p-4 flex items-center gap-4 text-left">
+              <div className="w-10 h-10 rounded-xl bg-gold-primary/10 text-gold-primary flex items-center justify-center text-lg font-black">🌍</div>
               <div>
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-wider">Corporate Site</p>
-                <a href="http://www.divinecoretech.in" target="_blank" rel="noopener noreferrer" className="text-xs font-black text-blue-600 hover:underline">www.divinecoretech.in</a>
+                <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">Corporate Site</p>
+                <a href="http://www.DIVINECOREtech.in" target="_blank" rel="noopener noreferrer" className="text-xs font-black text-gold-primary hover:underline">www.DIVINECOREtech.in</a>
               </div>
             </div>
           </div>
@@ -594,7 +591,7 @@ export default function Careers() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/917448609951?text=Hello%20DivineCore%20Technologies%2C%20I%20would%20like%20to%20know%20more%20about%20the%20current%20job%20openings."
+        href="https://wa.me/917448609951?text=Hello%20DIVINECORE%20Technologies%2C%20I%20would%20like%20to%20know%20more%20about%20the%20current%20job%20openings."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center group border-2 border-white/20"
@@ -619,12 +616,12 @@ export default function Careers() {
           }}
           className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
         >
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-slate-100 flex flex-col animate-fade-in-scale">
+          <div className="bg-[#0d0d0d] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-white/10 flex flex-col animate-fade-in-scale text-white">
             
             {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors flex items-center justify-center text-sm font-black cursor-pointer z-10"
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-colors flex items-center justify-center text-sm font-black cursor-pointer z-10"
               aria-label="Close modal"
             >
               ✕
@@ -634,38 +631,38 @@ export default function Careers() {
             <div className="p-6 md:p-8">
               {successMsg ? (
                 <div className="text-center space-y-6 py-6 animate-fade-in-scale">
-                  <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto text-4xl border border-green-200">
+                  <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto text-4xl border border-emerald-500/20 text-emerald-400">
                     🎉
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-black text-slate-900">Application Submitted!</h3>
-                    <p className="text-xs text-blue-600 font-black tracking-widest bg-blue-50 border border-blue-100 inline-block px-4 py-1.5 rounded-full">
+                    <h3 className="text-2xl font-black text-white">Application Submitted!</h3>
+                    <p className="text-xs text-gold-primary font-black tracking-widest bg-gold-primary/10 border border-gold-primary/20 inline-block px-4 py-1.5 rounded-full">
                       APPLICATION ID: {applicationId}
                     </p>
                   </div>
                   
-                  <div className="max-w-md mx-auto text-left bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3">
-                    <p className="text-slate-700 text-xs leading-relaxed text-center font-bold">
-                      Thank you for applying to DivineCore Technologies.
+                  <div className="max-w-md mx-auto text-left bg-white/[0.01] border border-white/[0.05] rounded-2xl p-6 space-y-3">
+                    <p className="text-white/80 text-xs leading-relaxed text-center font-bold">
+                      Thank you for applying to DivineCore Technologies PVT LTD.
                     </p>
-                    <p className="text-slate-600 text-xs leading-relaxed text-center font-medium">
+                    <p className="text-white/60 text-xs leading-relaxed text-center font-medium">
                       Your application has been received successfully. Our recruitment team will review your profile and contact shortlisted candidates.
                     </p>
-                    <p className="text-slate-400 text-[10px] text-center italic border-t border-slate-200/60 pt-3">
-                      A confirmation email has been dispatched to <span className="font-bold text-slate-600">{emailAddress}</span>.
+                    <p className="text-white/40 text-[10px] text-center italic border-t border-white/5 pt-3">
+                      A confirmation email has been dispatched to <span className="font-bold text-white/80">{emailAddress}</span>.
                     </p>
                   </div>
 
                   <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
                     <button 
                       onClick={resetForm}
-                      className="bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all cursor-pointer"
+                      className="gold-gradient hover:opacity-90 text-deep-black font-black text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all cursor-pointer"
                     >
                       Submit Another Application
                     </button>
                     <button 
                       onClick={() => setIsModalOpen(false)}
-                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all cursor-pointer"
+                      className="bg-white/5 hover:bg-white/10 text-white font-black text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all cursor-pointer"
                     >
                       Close Window
                     </button>
@@ -673,13 +670,13 @@ export default function Careers() {
                 </div>
               ) : (
                 <div>
-                  <div className="border-b border-slate-200 pb-4 mb-6 text-left pr-8">
-                    <h3 className="text-2xl font-black text-slate-900">Application Form</h3>
-                    <p className="text-xs text-slate-500 mt-1">Please select the role type, position, and enter candidate details.</p>
+                  <div className="border-b border-white/10 pb-4 mb-6 text-left pr-8">
+                    <h3 className="text-2xl font-black text-white">Application Form</h3>
+                    <p className="text-xs text-white/50 mt-1">Please select the role type, position, and enter candidate details.</p>
                   </div>
 
                   {errorMsg && (
-                    <div className="mb-6 bg-red-50 border border-red-200 text-red-750 text-xs rounded-xl p-4 font-semibold text-left">
+                    <div className="mb-6 bg-red-950/20 border border-red-900/40 text-red-400 text-xs rounded-xl p-4 font-semibold text-left">
                       {errorMsg}
                     </div>
                   )}
@@ -687,10 +684,10 @@ export default function Careers() {
                   <form onSubmit={handleSubmit} className="space-y-6 text-left">
                     
                     {/* Role Type & Position Dropdown Fields */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-b border-slate-200 pb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-b border-white/10 pb-6">
                       {/* Application Type */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Application Type *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Application Type *</label>
                         <select
                           required
                           value={appType}
@@ -698,29 +695,29 @@ export default function Careers() {
                             setAppType(e.target.value as any);
                             setRole(""); // Reset role on type change
                           }}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+                          className="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary cursor-pointer"
                         >
-                          <option value="">-- Select Type --</option>
-                          <option value="Full-Time">Full-Time</option>
-                          <option value="Internship">Internship</option>
+                          <option value="" className="bg-[#0d0d0d]">-- Select Type --</option>
+                          <option value="Full-Time" className="bg-[#0d0d0d]">Full-Time</option>
+                          <option value="Internship" className="bg-[#0d0d0d]">Internship</option>
                         </select>
                       </div>
 
                       {/* Select Role */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Position Applied For *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Position Applied For *</label>
                         <select
                           required
                           disabled={!appType}
                           value={role}
                           onChange={(e) => setRole(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 disabled:bg-slate-100 disabled:text-slate-400 cursor-pointer"
+                          className="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary disabled:bg-white/[0.02] disabled:text-white/20 cursor-pointer"
                         >
-                          <option value="">
+                          <option value="" className="bg-[#0d0d0d]">
                             {!appType ? "-- Select Type First --" : "-- Select Role --"}
                           </option>
                           {roleOptions.map((opt) => (
-                            <option key={opt} value={opt}>
+                            <option key={opt} value={opt} className="bg-[#0d0d0d]">
                               {opt}
                             </option>
                           ))}
@@ -732,72 +729,72 @@ export default function Careers() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* Full Name */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Full Name *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Full Name *</label>
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. Anand Kumar"
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
 
                       {/* Mobile Number */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Mobile Number *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Mobile Number *</label>
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. +91 98765 43210"
                           value={mobileNumber}
                           onChange={(e) => setMobileNumber(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
 
                       {/* Email Address */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Email Address *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Email Address *</label>
                         <input 
                           type="email" 
                           required
                           placeholder="e.g. anand@example.com"
                           value={emailAddress}
                           onChange={(e) => setEmailAddress(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
 
                       {/* Current Location */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Current Location *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Current Location *</label>
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. Salem, Tamil Nadu"
                           value={currentLocation}
                           onChange={(e) => setCurrentLocation(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
 
                       {/* Highest Qualification */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Highest Qualification *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Highest Qualification *</label>
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. B.Sc. Computer Science / BCA"
                           value={education}
                           onChange={(e) => setEducation(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
 
                       {/* Years of Experience */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Years of Experience * (Enter 0 if fresher)</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Years of Experience * (Enter 0 if fresher)</label>
                         <input 
                           type="number" 
                           required
@@ -805,7 +802,7 @@ export default function Careers() {
                           placeholder="e.g. 0"
                           value={experience}
                           onChange={(e) => setExperience(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
                     </div>
@@ -814,53 +811,53 @@ export default function Careers() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* LinkedIn */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">LinkedIn Profile *</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">LinkedIn Profile *</label>
                         <input 
                           type="url" 
                           required
                           placeholder="e.g. https://linkedin.com/in/username"
                           value={linkedIn}
                           onChange={(e) => setLinkedIn(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
 
                       {/* Portfolio */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Portfolio Website (Optional)</label>
+                        <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Portfolio Website (Optional)</label>
                         <input 
                           type="url" 
                           placeholder="e.g. https://myportfolio.com"
                           value={portfolio}
                           onChange={(e) => setPortfolio(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                         />
                       </div>
                     </div>
 
                     {/* Resume Upload */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Upload Resume (PDF Only) *</label>
+                      <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Upload Resume (PDF Only) *</label>
                       <input 
                         type="file" 
                         required
                         accept=".pdf,application/pdf"
                         onChange={handleResumeChange}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-slate-450 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-gold-primary/10 file:text-gold-primary hover:file:bg-gold-primary/20 cursor-pointer"
                       />
-                      <p className="text-[10px] text-slate-400 font-medium">PDF only · Max file size: 2 MB</p>
-                      {resume && <p className="text-xs text-blue-600 font-bold">✓ {resume.name} ({(resume.size / (1024 * 1024)).toFixed(2)} MB)</p>}
+                      <p className="text-[10px] text-white/40 font-medium">PDF only · Max file size: 2 MB</p>
+                      {resume && <p className="text-xs text-gold-primary font-bold">✓ {resume.name} ({(resume.size / (1024 * 1024)).toFixed(2)} MB)</p>}
                     </div>
 
                     {/* Cover Letter */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-black text-slate-700 uppercase tracking-wider block">Cover Letter (Optional)</label>
+                      <label className="text-xs font-black text-white/70 uppercase tracking-wider block">Cover Letter (Optional)</label>
                       <textarea 
                         rows={4}
                         placeholder="Tell us why you would be a great fit for this position..."
                         value={coverLetter}
                         onChange={(e) => setCoverLetter(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/30"
                       />
                     </div>
 
@@ -868,11 +865,11 @@ export default function Careers() {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider py-4 rounded-xl transition-all disabled:bg-blue-300 cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full gold-gradient hover:opacity-90 text-deep-black font-black text-xs uppercase tracking-wider py-4 rounded-xl transition-all disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <span className="w-4 h-4 border-2 border-deep-black border-t-transparent rounded-full animate-spin" />
                           Submitting...
                         </>
                       ) : (

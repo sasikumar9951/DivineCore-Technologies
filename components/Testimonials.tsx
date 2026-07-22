@@ -3,19 +3,19 @@ import Section from "./Section";
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Working with DivineCore Technologies has been an outstanding experience from day one. Their team demonstrated professionalism, technical expertise, responsiveness, and a true commitment to delivering high-quality results. They consistently handled complex requirements with precision and exceeded expectations throughout the development process. One of the best technology companies I have ever worked with, and I highly recommend them to anyone looking for serious, high-level development support.",
+      quote: "Working with DivineCore Technologies PVT LTD has been an outstanding experience from day one. Their team demonstrated professionalism, technical expertise, responsiveness, and a true commitment to delivering high-quality results. They consistently handled complex requirements with precision and exceeded expectations throughout the development process. One of the best technology companies I have ever worked with, and I highly recommend them to anyone looking for serious, high-level development support.",
       author: "Mohammed El Imadi",
       role: "CEO, Aero Airworthiness Certification LLC",
       rating: 5
     },
     {
-      quote: "The e-commerce platform developed for Revz Clothings completely elevated our brand and redefined our digital presence. The shopping experience is incredibly fast, sleek, and our conversion rates have soared since launch! The team's ability to blend high-end design with robust performance was exactly what we needed to scale our operations globally. We couldn't be happier with the technical support and creative vision DivineCore brought to this project.",
+      quote: "The e-commerce platform developed for Revz Clothings completely elevated our brand and redefined our digital presence. The shopping experience is incredibly fast, sleek, and our conversion rates have soared since launch! The team's ability to blend high-end design with robust performance was exactly what we needed to scale our operations globally. We couldn't be happier with the technical support and creative vision DIVINECORE brought to this project.",
       author: "Selvam",
       role: "Founder, Revz Clothings",
       rating: 5
     },
     {
-      quote: "DivineCore transformed our outdated logistics system into a high-performance machine that handles complex routing and real-time tracking with ease. Their attention to detail and technical expertise is truly unmatched in the industry today. They delivered a scalable infrastructure that has significantly reduced our operational overhead while increasing transparency across our entire supply chain. A truly professional partner for enterprise-grade solutions.",
+      quote: "DIVINECORE transformed our outdated logistics system into a high-performance machine that handles complex routing and real-time tracking with ease. Their attention to detail and technical expertise is truly unmatched in the industry today. They delivered a scalable infrastructure that has significantly reduced our operational overhead while increasing transparency across our entire supply chain. A truly professional partner for enterprise-grade solutions.",
       author: "Rajesh Kumar",
       role: "CEO, LogiTrans India",
       rating: 5

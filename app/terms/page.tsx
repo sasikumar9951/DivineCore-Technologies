@@ -7,12 +7,12 @@ export default function TermsAndConditions() {
     {
       num: "01",
       title: "Agreement to Terms",
-      content: "Welcome to DivineCore Technologies. By accessing or using our websites, consulting services, custom software engineering integrations, or data processing solutions, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must immediately cease all access and use of our corporate services."
+      content: "Welcome to DivineCore Technologies PVT LTD. By accessing or using our websites, consulting services, custom software engineering integrations, or data processing solutions, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must immediately cease all access and use of our corporate services."
     },
     {
       num: "02",
       title: "Intellectual Property & Ownership",
-      content: "All custom software, custom-designed graphic interfaces, proprietary database schemas, and clean API implementations engineered by DivineCore Technologies are custom-built for our clients. All intellectual property, ownership rights, copyrights, and titles for client-commissioned deliverables shall be legally and fully transferred to the client only upon complete, successful, and final payment of all outstanding invoices. DivineCore reserves all rights to proprietary frameworks, base code libraries, and general software utilities developed prior to or independently of individual project statements."
+      content: "All custom software, custom-designed graphic interfaces, proprietary database schemas, and clean API implementations engineered by DivineCore Technologies PVT LTD are custom-built for our clients. All intellectual property, ownership rights, copyrights, and titles for client-commissioned deliverables shall be legally and fully transferred to the client only upon complete, successful, and final payment of all outstanding invoices. DIVINECORE reserves all rights to proprietary frameworks, base code libraries, and general software utilities developed prior to or independently of individual project statements."
     },
     {
       num: "03",
@@ -22,7 +22,7 @@ export default function TermsAndConditions() {
     {
       num: "04",
       title: "Billing, Payments & Invoicing",
-      content: "Engaging DivineCore Technologies for custom engineering or data processing operates under structured Professional Billing scopes and client-agreed Statements of Work (SOWs). Invoices are rendered in accordance with project quotes, recurring support cycles, or specified hourly rates. Payments must be processed within the timelines stipulated in the service agreement. Late payments may result in a temporary suspension of active development or data delivery pipelines."
+      content: "Engaging DivineCore Technologies PVT LTD for custom engineering or data processing operates under structured Professional Billing scopes and client-agreed Statements of Work (SOWs). Invoices are rendered in accordance with project quotes, recurring support cycles, or specified hourly rates. Payments must be processed within the timelines stipulated in the service agreement. Late payments may result in a temporary suspension of active development or data delivery pipelines."
     },
     {
       num: "05",
@@ -92,7 +92,7 @@ export default function TermsAndConditions() {
             <div className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm font-black text-deep-black">
               <div className="space-y-2">
                 <p className="text-gold-muted text-xs uppercase tracking-wider font-bold">Email Address</p>
-                <a href="mailto:info@divinecoretech.in" className="hover:text-gold-primary transition-colors">info@divinecoretech.in</a>
+                <a href="mailto:info@DIVINECOREtech.in" className="hover:text-gold-primary transition-colors">info@DIVINECOREtech.in</a>
               </div>
               <div className="space-y-2">
                 <p className="text-gold-muted text-xs uppercase tracking-wider font-bold">Salem Headquarters</p>

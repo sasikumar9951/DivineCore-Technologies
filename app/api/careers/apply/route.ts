@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
     const isDuplicate = await emailAlreadyApplied(emailAddress);
     if (isDuplicate) {
       return NextResponse.json({
-        error: "An application with this email address already exists. Our recruitment team will review your profile and contact you if shortlisted. Thank you for your interest in DivineCore Technologies."
+        error: "An application with this email address already exists. Our recruitment team will review your profile and contact you if shortlisted. Thank you for your interest in DivineCore Technologies PVT LTD."
       }, { status: 409 });
     }
 
@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: "Thank you for applying to DivineCore Technologies. Your application has been submitted successfully. Our recruitment team will review your profile and contact shortlisted candidates.",
+      message: "Thank you for applying to DivineCore Technologies PVT LTD. Your application has been submitted successfully. Our recruitment team will review your profile and contact shortlisted candidates.",
       applicationId: savedApp.id,
     });
   } catch (error: any) {

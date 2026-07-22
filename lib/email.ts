@@ -37,10 +37,10 @@ export async function sendConfirmationEmail({
   });
 
   const mailOptions = {
-    from: `"DivineCore Technologies Recruitment" <${user}>`,
+    from: `"DivineCore Technologies PVT LTD Recruitment" <${user}>`,
     to,
-    subject: "Application Received – DivineCore Technologies",
-    text: `Thank you for applying to DivineCore Technologies.\n\nWe have successfully received your application. Our recruitment team will review your profile and contact shortlisted candidates for the next stage of the hiring process.\n\nRegards,\nDivineCore Technologies`,
+    subject: "Application Received – DivineCore Technologies PVT LTD",
+    text: `Thank you for applying to DivineCore Technologies PVT LTD.\n\nWe have successfully received your application. Our recruitment team will review your profile and contact shortlisted candidates for the next stage of the hiring process.\n\nRegards,\nDivineCore Technologies PVT LTD`,
     html: `
       <!DOCTYPE html>
       <html>
@@ -123,11 +123,11 @@ export async function sendConfirmationEmail({
       <body>
         <div class="container">
           <div class="header">
-            <h1>DivineCore Technologies</h1>
+            <h1>DivineCore Technologies PVT LTD</h1>
             <p>Recruitment Desk</p>
           </div>
           <div class="content">
-            <p>Thank you for applying to DivineCore Technologies.</p>
+            <p>Thank you for applying to DivineCore Technologies PVT LTD.</p>
             <p>We have successfully received your application. Our recruitment team will review your profile and contact shortlisted candidates for the next stage of the hiring process.</p>
             
             <div class="details-box">
@@ -136,11 +136,11 @@ export async function sendConfirmationEmail({
               <p><strong>Application Type:</strong> ${applicationType}</p>
             </div>
 
-            <p>Regards,<br><strong>DivineCore Technologies</strong></p>
+            <p>Regards,<br><strong>DivineCore Technologies PVT LTD</strong></p>
           </div>
           <div class="footer">
-            <p>&copy; 2026 DivineCore Technologies. All rights reserved.</p>
-            <p>Website: <a href="http://www.divinecoretech.in">www.divinecoretech.in</a> | Email: <a href="mailto:info@divinecoretech.in">info@divinecoretech.in</a></p>
+            <p>&copy; 2026 DivineCore Technologies PVT LTD. All rights reserved.</p>
+            <p>Website: <a href="http://www.DIVINECOREtech.in">www.DIVINECOREtech.in</a> | Email: <a href="mailto:info@DIVINECOREtech.in">info@DIVINECOREtech.in</a></p>
           </div>
         </div>
       </body>

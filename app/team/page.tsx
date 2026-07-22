@@ -17,7 +17,7 @@ export default function Team() {
       dept: "Leadership",
       bio: "Pioneering technological engineering integrity and establishing robust enterprise service guidelines globally.",
       image: "/images/founder.png",
-      email: "founder@divinecoretech.in",
+      email: "founder@DIVINECOREtech.in",
       phone: "+91 74486 09951"
     },
     {
@@ -26,7 +26,7 @@ export default function Team() {
       dept: "Engineering",
       bio: "Coordinates frontend web pipelines, cross-platform mobile apps, and scalable React / React Native architectures.",
       initials: "VR",
-      email: "vimal@divinecoretech.in"
+      email: "vimal@DIVINECOREtech.in"
     },
     {
       name: "Aman Shaikh",
@@ -34,7 +34,7 @@ export default function Team() {
       dept: "Engineering",
       bio: "Engineers robust Node.js backend APIs, secures client-server authorization vectors, and manages web app databases.",
       initials: "AS",
-      email: "aman@divinecoretech.in"
+      email: "aman@DIVINECOREtech.in"
     },
     {
       name: "Namitha M",
@@ -42,7 +42,7 @@ export default function Team() {
       dept: "Engineering",
       bio: "Bridges the gap between creative design concepts and high-performance, pixel-perfect frontend React and Next.js interfaces.",
       initials: "NM",
-      email: "namitha@divinecoretech.in"
+      email: "namitha@DIVINECOREtech.in"
     },
     {
       name: "Umar Faruk J",
@@ -50,7 +50,7 @@ export default function Team() {
       dept: "Design",
       bio: "Crafts luxury user journeys, responsive interface designs, and cohesive visual brand styles for enterprise digital platforms.",
       initials: "UF",
-      email: "umar@divinecoretech.in"
+      email: "umar@DIVINECOREtech.in"
     },
     {
       name: "Saranya M",
@@ -58,7 +58,7 @@ export default function Team() {
       dept: "Leadership",
       bio: "Directs client digital roadmaps, web development sprint cycles, cross-team resource allocations, and project deliveries.",
       image: "/images/saranya.png",
-      email: "saranya@divinecoretech.in"
+      email: "saranya@DIVINECOREtech.in"
     },
     {
       name: "Nivetha M",
@@ -66,7 +66,7 @@ export default function Team() {
       dept: "Engineering",
       bio: "Leads Python-based Selenium/Playwright browser automation frameworks, server API stress scripting, and regression validation pipelines.",
       image: "/images/nivedha.jpg",
-      email: "nivetha@divinecoretech.in"
+      email: "nivetha@DIVINECOREtech.in"
     },
     {
       name: "Rakshaya R",
@@ -74,7 +74,7 @@ export default function Team() {
       dept: "Operations",
       bio: "Engineers automated Python backend scripts for web data crawling, database migrations, server operational audits, and API integrations.",
       initials: "RR",
-      email: "rakshaya@divinecoretech.in"
+      email: "rakshaya@DIVINECOREtech.in"
     }
   ];
 
@@ -86,7 +86,7 @@ export default function Team() {
     <div>
       <Hero
         title="Meet Our Team"
-        subtitle="The experts, innovators, and thinkers building premium digital solutions at DivineCore Technologies."
+        subtitle="The experts, innovators, and thinkers building premium digital solutions at DivineCore Technologies PVT LTD."
         image={
           <div className="w-full h-full bg-[#111111] flex items-center justify-center relative overflow-hidden select-none">
             <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] bg-gold-primary/10 blur-[80px] rounded-full pointer-events-none animate-pulse" />

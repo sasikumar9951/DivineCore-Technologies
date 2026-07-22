@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
     {
       num: "01",
       title: "Introduction",
-      content: "DivineCore Technologies (\"we\", \"our\", or \"us\") respects your privacy and is committed to protecting your personal data. This Privacy Policy details how we handle, collect, secure, and process information obtained when you interact with our website, request custom software solutions, or engage in digital operations at our corporate headquarters in Salem, Tamilnadu."
+      content: "DivineCore Technologies PVT LTD (\"we\", \"our\", or \"us\") respects your privacy and is committed to protecting your personal data. This Privacy Policy details how we handle, collect, secure, and process information obtained when you interact with our website, request custom software solutions, or engage in digital operations at our corporate headquarters in Salem, Tamilnadu."
     },
     {
       num: "02",
@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
     <div>
       <Hero
         title="Privacy Policy"
-        subtitle="How we protect your corporate assets, project files, and personal data at DivineCore Technologies."
+        subtitle="How we protect your corporate assets, project files, and personal data at DivineCore Technologies PVT LTD."
         image={
           <div className="w-full h-full bg-[#111111] flex items-center justify-center relative overflow-hidden select-none">
             <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] bg-gold-primary/10 blur-[80px] rounded-full pointer-events-none animate-pulse" />
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
             <div className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm font-black text-deep-black">
               <div className="space-y-2">
                 <p className="text-gold-muted text-xs uppercase tracking-wider font-bold">Email Address</p>
-                <a href="mailto:info@divinecoretech.in" className="hover:text-gold-primary transition-colors">info@divinecoretech.in</a>
+                <a href="mailto:info@DIVINECOREtech.in" className="hover:text-gold-primary transition-colors">info@DIVINECOREtech.in</a>
               </div>
               <div className="space-y-2">
                 <p className="text-gold-muted text-xs uppercase tracking-wider font-bold">Salem Headquarters</p>

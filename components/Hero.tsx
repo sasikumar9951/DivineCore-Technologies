@@ -30,7 +30,7 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
               {/* Small Badge */}
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-[10px] font-black uppercase tracking-[0.3em] text-gold-primary mb-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                 <span className="w-2 h-2 rounded-full bg-gold-primary animate-pulse" />
-                DIVINECORE TECHNOLOGIES
+                DivineCore Technologies PVT LTD
               </div>
 
               {/* Custom Heading */}
@@ -84,7 +84,7 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
               <div className="relative w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[380px] h-[480px] sm:h-[540px] lg:h-[640px] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
                 <img
                   src="/images/hero_corporate_professional.png"
-                  alt="DivineCore Technologies Network Connections"
+                  alt="DivineCore Technologies PVT LTD Network Connections"
                   className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
                 />
                 {/* Elegant overlay gradient to blend bottom */}
@@ -171,7 +171,7 @@ const Hero = ({ title, subtitle, children, isHome = false, image }: HeroProps) =
           <div className="lg:w-1/2 space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-[0.3em] text-gold-primary mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-primary animate-pulse" />
-              DivineCore Technologies
+              DivineCore Technologies PVT LTD
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white">

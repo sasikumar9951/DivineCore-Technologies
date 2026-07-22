@@ -23,7 +23,7 @@ export default function AIChatWidget() {
       {
         id: "welcome",
         sender: "bot",
-        text: "Hello! Welcome to DivineCore Technologies. I am **CoreAI**, your virtual assistant. How can I help you today?",
+        text: "Hello! Welcome to DivineCore Technologies PVT LTD. I am **CoreAI**, your virtual assistant. How can I help you today?",
         timestamp: new Date(),
       },
     ]);
@@ -61,7 +61,7 @@ export default function AIChatWidget() {
     const query = msg.toLowerCase();
     
     if (query.includes("founder") || query.includes("ceo") || query.includes("sasikumar")) {
-      return "DivineCore Technologies was founded in **2025** by **Sasikumar S**, who serves as the Founder & CEO. He is a visionary leader dedicated to technical integrity, premium software design, and high-performance digital architectures.";
+      return "DivineCore Technologies PVT LTD was founded in **2025** by **Sasikumar S**, who serves as the Founder & CEO. He is a visionary leader dedicated to technical integrity, premium software design, and high-performance digital architectures.";
     }
     if (query.includes("service") || query.includes("what do you do") || query.includes("what you offer") || query.includes("capabilities") || query.includes("offerings")) {
       return "We offer a suite of high-end digital services:\n\n* **Custom Software & Web Development** (Next.js, Node.js, Python, React)\n* **Mobile App Development** (High-performance iOS & Android apps)\n* **Cloud Solutions & DevOps** (AWS, Azure pipelines)\n* **Cybersecurity & Security Auditing** (Vulnerability assessments)\n* **BPO & High-Precision Data Entry** (Digitization, QA operations)\n\nWould you like to learn more about a specific service?";
@@ -88,19 +88,19 @@ export default function AIChatWidget() {
       return "Our corporate headquarters is located at:\n\n**No. 48, 1st Floor, Tamil Sangam Road, Opposite Arignar Anna Library, Shankar Nagar, Salem, Tamil Nadu – 636007.**\n\nWe enforce strict physical security checkpoints and administrative guidelines to ensure maximum client data protection.";
     }
     if (query.includes("contact") || query.includes("email") || query.includes("phone") || query.includes("call") || query.includes("number") || query.includes("mail") || query.includes("phone number")) {
-      return "You can connect with us directly:\n\n* **Email**: info@divinecoretech.in\n* **Phone**: +91 74486 09951 or +91 63690 81530\n\nWe would love to help you build or consult on your next enterprise application!";
+      return "You can connect with us directly:\n\n* **Email**: info@DIVINECOREtech.in\n* **Phone**: +91 74486 09951 or +91 63690 81530\n\nWe would love to help you build or consult on your next enterprise application!";
     }
     if (query.includes("terms") || query.includes("ip") || query.includes("intellectual") || query.includes("ownership") || query.includes("payment") || query.includes("milestone") || query.includes("milestones") || query.includes("nda") || query.includes("jurisdiction") || query.includes("governing law")) {
       return "Under our service guidelines:\n\n* **IP Ownership**: All custom software IP rights, copyright titles, and clean codes are fully transferred to you **upon complete and final payment** of all project milestones and invoices.\n* **Confidentiality**: All agreements are strictly protected under mutual Nondisclosure Agreements (NDAs).\n* **Governing Law**: Subject to the exclusive jurisdiction of the courts of Salem, Tamilnadu, India.";
     }
     if (query.includes("career") || query.includes("job") || query.includes("hiring") || query.includes("join") || query.includes("work there") || query.includes("vacancy")) {
-      return "We are always looking for stellar engineering, creative design, and data operations minds to join our powerhouse in Salem! You can explore open roles on our Careers page or email your resume to **info@divinecoretech.in**.";
+      return "We are always looking for stellar engineering, creative design, and data operations minds to join our powerhouse in Salem! You can explore open roles on our Careers page or email your resume to **info@DIVINECOREtech.in**.";
     }
     if (query.includes("hello") || query.includes("hi") || query.includes("hey") || query.includes("greetings") || query.includes("good morning") || query.includes("good afternoon")) {
-      return "Hello! Welcome to DivineCore Technologies. I am **CoreAI**, your virtual assistant. How can I help you today?";
+      return "Hello! Welcome to DivineCore Technologies PVT LTD. I am **CoreAI**, your virtual assistant. How can I help you today?";
     }
     
-    return "I'm sorry, I didn't quite catch that. I am programmed to assist you with inquiries regarding DivineCore Technologies. You can ask about our **Founder (Sasikumar)**, **Services**, **Team**, **Location**, **Contact Details**, or **Terms & IP Rights**.";
+    return "I'm sorry, I didn't quite catch that. I am programmed to assist you with inquiries regarding DivineCore Technologies PVT LTD. You can ask about our **Founder (Sasikumar)**, **Services**, **Team**, **Location**, **Contact Details**, or **Terms & IP Rights**.";
   };
 
   const handleSendMessage = async (textToSend: string) => {
@@ -400,7 +400,7 @@ export default function AIChatWidget() {
         
         {/* Tiny Footer Tag */}
         <div className="pb-2 bg-[#050505] text-[7px] font-black tracking-[0.2em] text-white/10 uppercase shrink-0">
-          CoreAI • DivineCore Technologies
+          CoreAI • DivineCore Technologies PVT LTD
         </div>
       </div>
     </div>
